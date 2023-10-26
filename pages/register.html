@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>SRegister Page</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+   <section>
+        <div class="box">
+
+            <div class="form">
+                <img src="../images/logoBDG.jpg" class="user" alt="">
+                <h2>Sign Up</h2>
+                <form id="registerForm" action="#" method="post" enctype="multipart/form-data">
+            
+                    <!-- <div class="inputBx">
+                        <input type="text" name="nama1"  placeholder="Nama" id="nama1"  required autofocus>
+                        <img src="images/user.png" alt="">
+                    </div> -->
+                    <!-- <div class="inputBx">
+                        <input type="text" name="email"  placeholder="Email" id="email"  required autofocus>
+                        <img src="images/user.png" alt="">
+                    </div> -->
+                    <div class="inputBx">
+                        <input type="text" name="username"  placeholder="Username" id="username"  required autofocus>
+                    </div>
+                    <div class="inputBx">
+                        <input type="password" name="passward" id="password" placeholder="Passward"  required>
+                    </div>
+                    <!-- <label class="remeber"><input type="checkbox"> Remember Me</label> -->
+                    <div class="inputBx" > 
+                        <input  type="submit" name="submit" value="Sign Up" id="submit">
+                    </div>
+                </form>
+                <div>
+                    <!-- <span style="float: left;"><a href="#">Forgot Passward </a>
+                    </span> -->
+                    <span style="float:left;"><a href="../pages/loginn.html">Already have an account?</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="../js/register2.js"></script>
+    <!-- <script type="text/javascript">
+    	function validation() {
+            let nama1 = document.getElementById("nama1").value;
+		    let username = document.getElementById("username").value;
+		    let pass = document.getElementById("password").value;
+		    if (username != "" && pass != "" && nama1 != "") {
+		        document.getElementById("submit").disabled = false;
+		    } else {
+		        document.getElementById("submit").disabled = true;
+		    }
+		}
+    </script> -->
+   </body>
+</html>
