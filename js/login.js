@@ -1,11 +1,11 @@
-//Mengambil nilai dari elemen input pada HTML  
+//Mengambil nilai dari elemen input pada HTML
 const loginForm = document.getElementById("loginForm");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const submitButton = document.getElementById("submit");
 const errorMessage = document.getElementById("error-message");
 
-//Fungsi untuk mengecek apakah form telah diisi dengan benar   
+//Fungsi untuk mengecek apakah form telah diisi dengan benar
 const validation = () => {
     const username = usernameInput.value;
     const pass = passwordInput.value;
@@ -16,7 +16,7 @@ const validation = () => {
     }
 };
 
-//Panggil fungsi validation saat input beruba  
+//Panggil fungsi validation saat input berubah
 usernameInput.addEventListener("input", validation);
 passwordInput.addEventListener("input", validation);
 
@@ -25,7 +25,7 @@ loginForm.addEventListener("submit", async (event) => {
     const username = usernameInput.value;
     const password = passwordInput.value;
 
-    // Kirim permintaan HTTP POST ke server Golang (sesuaikan dengan URL yang benar)
+    // Kirim permintaan HTTP POST ke server Golang (sesuaikan dengan URL yang benar)   
     fetch("https://asia-southeast2-testlogin-366704.cloudfunctions.net/function-16", {
         method: "POST",
         headers: {
