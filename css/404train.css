@@ -124,3 +124,19 @@
       75% { transform: translateX(3px); }
     100% { transform: translateX(-2px); }
   }
+
+  .back-button {
+    
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #d9534f; /* Warna merah */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #c9302c; /* Warna merah yang lebih gelap saat hover */
+}
