@@ -1,4 +1,4 @@
-// Ambil elemen-elemen HTML yang diperlukan
+// Ambil elemen-elemen HTML yang diperlukan  
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const submitButton = document.getElementById("submit");
@@ -32,7 +32,7 @@ registerForm.addEventListener("submit", async (event) => {
         } else {
             // Handle kesalahan jika diperlukan
             const data = await response.json();
-            console.error("Gagal mendaftar:", data.message);
+            console.error("Gagall mendaftar:", data.message);
         }
     } catch (error) {
         console.error("Terjadi kesalahann:", error);
