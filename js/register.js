@@ -11,11 +11,11 @@ const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunc
 registerForm.addEventListener("submit", async (event) => {
     event.preventDefault(); // Mencegah pengiriman form default
 
-    // Ambil nilai dari input username dan password
+    //Ambil nilai dari input username dan passwor
     const username = usernameInput.value;
     const password = passwordInput.value;
 
-    // Kirim permintaan POST ke API register
+    //Kirim permintaan POST ke API register
     try {
         const response = await fetch(registerApiUrl, {
             method: "POST",
@@ -35,6 +35,6 @@ registerForm.addEventListener("submit", async (event) => {
             console.error("Gagal mendaftar:", data.message);
         }
     } catch (error) {
-        console.error("Terjadi kesalahan:", error);
+        console.error("Terjadi kesalahann:", error);
     }
 });

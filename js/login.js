@@ -16,7 +16,7 @@ const validation = () => {
     }
 };
 
-//Panggil fungsi validation saat input berubah
+//Panggil fungsi validation saat input beruba
 usernameInput.addEventListener("input", validation);
 passwordInput.addEventListener("input", validation);
 
