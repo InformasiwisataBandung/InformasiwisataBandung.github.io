@@ -19,6 +19,7 @@ registerForm.addEventListener("submit", async (event) => {
     try {
         const response = await fetch(registerApiUrl, {
             method: "POST",
+            mode: "no-cors", // Menggunakan mode no-cors
             headers: {
                 "Content-Type": "application/json",
             },
@@ -28,7 +29,7 @@ registerForm.addEventListener("submit", async (event) => {
         if (response.ok) {
             // Pendaftaran berhasil, alihkan ke halaman login.html
             //window.location.href = "../pages/loginn.html";
-            window.location.href = "../pages/dashboard.html";
+            window.location.href = "../pages/login.html";
         } else {
             // Handle kesalahan jika diperlukan
             const data = await response.json();
