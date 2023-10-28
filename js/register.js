@@ -19,7 +19,7 @@ registerForm.addEventListener("submit", async (event) => {
     try {
         const response = await fetch(registerApiUrl, {
             method: "POST",
-            mode: "no-cors", // Menggunakan mode no-cors
+            //mode: "no-cors", // Menggunakan mode no-cors
             headers: {
                 "Content-Type": "application/json",
             },
