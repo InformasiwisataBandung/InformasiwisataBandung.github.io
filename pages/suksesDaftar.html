@@ -1,82 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Success</title>
-    <style>
-        *{
-            margin: 0;
-            padding:0;
-            box-sizing: border-box;
-            font-family: 'poppins', 
-            sans-serif;
-        }
-        body {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: url('../images/bandungg.webp') ;
-        }
-        .container{
-            width: 300px;
-            height: 50vh;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-            text-align: center;
-        }
-        .top{
-            height: 25vh;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            border-radius: 10px 10px 0px 0px;
-        }
-        .bottom{
-            background-color: rgb(50, 206, 33);
-            border-radius: 0px 0px 10px 10px ;
-        }
-        .far{
-            font-size: 40px;
-            margin-top: 7vh;
-        }
-        h3{
-            margin-top: 20px;
-        }
-        p{
-            background-color: rgb(216, 24, 24);
-            margin-top: 5vh ;
-            margin-bottom: 3vh ;
-            padding: 0px 10px;
-            color: #333;
-        }
-        button{
-            border: none;
-            border-radius: 5px;
-            padding: 10px 35px;
-            color: white;
-            background-color: #333;
-        }
-        button:hover{
-            background-color: #222;
-            cursor: pointer;
-        }
-
-    </style>
+    <meta charset="utf-8">
+    <title>Sukses Daftar</title>
+    <link rel="stylesheet" href="../css/suksesDaftar.css">
 </head>
 <body>
-    <div class="container">
-        <div class="top">
-            <i class="far fa-circle-check"></i>
-            <h3>SUCCESS!</h3>
+   <section>
+        <div class="box">
+            <div class="form">
+                <img src="../images/logoBDG.jpg" class="user" alt="">
+                <h2>Registration Successful</h2>
+                <p><strong>You have successfully registered. Click the button below to continue.</strong> </p>
+                <br>
+                <div class="inputBx">
+                    <a href="../pages/login.html" class="continue-button">Continue</a>
+                </div>
+            </div>
         </div>
-        <div class="bottom">
-            <p>Congratulations, ur account has been succesfully created.</p>
-            <!-- <button>Continue</button> -->
-            <a href="../pages/dashboardd.html"><button>Continue</button></a>
-        </div>
-    </div>
-</body>
+    </section>
+   </body>
 </html>

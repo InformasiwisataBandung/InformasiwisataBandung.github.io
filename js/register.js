@@ -3,6 +3,7 @@ const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const submitButton = document.getElementById("submit");
 const registerForm = document.getElementById("registerForm");
+const errorMessage = document.getElementById("error-message");
 
 // URL API register
 const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-Signup";
@@ -33,7 +34,8 @@ registerForm.addEventListener("submit", async (event) => {
         } else {
             // Handle kesalahan jika diperlukan
             const data = await response.json();
-            console.error("Gagall mendaftar:", data.message);
+            //console.error("Gagall mendaftar:", data.message);
+            errorMessage.textContent = data.message; // Menampilkan pesan kesalahan dari API
         }
     } catch (error) {
         console.error("Terjadi kesalahann:", error);
