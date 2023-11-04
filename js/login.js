@@ -27,7 +27,7 @@ loginForm.addEventListener("submit", async (event) => {
 
 
     // Kirim permintaan HTTP POST ke server Golang (sesuaikan dengan URL yang benar)
-    fetch("https://us-central1-bustling-walker-340203.cloudfunctions.net/SIgnin", {
+    fetch("https://us-central1-bustling-walker-340203.cloudfunctions.net/function-5SignFix", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
