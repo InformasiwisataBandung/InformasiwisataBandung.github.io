@@ -7,10 +7,6 @@ anime({
     direction: 'alternate'
   });
   
-
-
-
-  
   anime({
     targets: '#zero',
     translateX: 10,
