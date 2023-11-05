@@ -1,0 +1,74 @@
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    background: #F0F2F4;
+    color: #333;
+    font-size: 16px;
+}
+
+.navbar.is-white {
+    background: #F0F2F4;
+}
+
+.hero-body {
+    background-image: url(../images/bandungg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+.articles {
+    margin: 5rem 0;
+    margin-top: -200px;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.article-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.article-body {
+    line-height: 1.6;
+}
+
+.promo-block {
+    background: #007BFF;
+    color: #FFF;
+    padding: 2rem;
+    text-align: center;
+}
+
+.promo-block h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.tag.is-black {
+    background: #000;
+    color: #FFF;
+}
+
+.footer {
+    background: #F0F2F4;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.footer p {
+    color: #333;
+    font-size: 14px;
+}
+
+/* Tambahkan gaya tambahan sesuai kebutuhan Anda */
