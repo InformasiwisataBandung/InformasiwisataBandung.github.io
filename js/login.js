@@ -39,6 +39,8 @@ loginForm.addEventListener("submit", async (event) => {
         .then(response => response.json())
         .then(data => {
             if (data.status === true) {
+                setCookieWithExpireHour("token",token,2);
+                console.log(token);
                 // Redirect user to user.html upon successful login
                 window.location.href = "../pages/dashboard.html";
             } else {
