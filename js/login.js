@@ -40,10 +40,9 @@ loginForm.addEventListener("submit", async (event) => {
         .then(data => {
             if (data.status === true) {
                 const token = data.token;
-                const welcomeMessage = data.message;
-                message.textContent = welcomeMessage;
+                
                 setCookieWithExpireHour("token",token,2);
-                message.style.color = "green";
+                
                 console.log(token);
                 // Redirect user to user.html upon successful login
                 window.location.href = "../pages/dashboard.html";
