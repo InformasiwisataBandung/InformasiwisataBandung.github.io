@@ -1,3 +1,5 @@
+import {setCookieWithExpireHour} from "https://jscroot.github.io/cookie/croot.js";
+
 //Mengambil nilai dari elemen input pada html
 const loginForm = document.getElementById("loginForm");
 const usernameInput = document.getElementById("username");
