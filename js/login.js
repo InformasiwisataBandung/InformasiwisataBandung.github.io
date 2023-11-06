@@ -3,16 +3,31 @@ import {setCookieWithExpireHour} from "https://jscroot.github.io/cookie/croot.js
 document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("loginForm");
     const message = document.getElementById("message");
-    
-    
+    const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
     const submitButton = document.getElementById("submit");
     const errorMessage = document.getElementById("error-message");
+
+    //Fungsi untuk mengecek apakah form telah diisi dengan benar
+    const validation = () => {
+    const username = usernameInput.value;
+    const pass = passwordInput.value;
+    if (username !== "" && pass !== "") {
+        submitButton.disabled = false;
+    } else {
+        submitButton.disabled = true;
+    }
+    };
+
+    //Panggil fungsi validation saat input berubah
+    usernameInput.addEventListener("input", validation);
+    passwordInput.addEventListener("input", validation);
 
     loginForm.addEventListener("submit", function(event) {
         event.preventDefault();
         
-        const usernameInput = document.getElementById("username").value;
-        const passwordInput = document.getElementById("password");value;
+        const username = usernameInput.value;
+    const password = passwordInput.value;
 
         // Kirim permintaan POST ke API
         fetch("https://us-central1-bustling-walker-340203.cloudfunctions.net/SIgnin", {
