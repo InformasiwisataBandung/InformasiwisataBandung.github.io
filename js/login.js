@@ -45,10 +45,10 @@ const passwordInput = document.getElementById("password");
             if (data.status === true) {
                 // Pengolahan respons setelah login berhasil
                 const token = data.token;
-                const welcomeMessage = data.message;
-                message.textContent = welcomeMessage;
+                //const welcomeMessage = data.message;
+                //message.textContent = welcomeMessage;
                 setCookieWithExpireHour("token",token,2);
-                message.style.color = "green";
+                //message.style.color = "green";
                 console.log(token);
 
                 // Redirect ke halaman dashboard setelah login berhasil
