@@ -59,7 +59,7 @@ const passwordInput = document.getElementById("password");
             }
         })
         .catch(error => {
-            console.error("ErrorR:", error);
+            console.error("Errorr:", error);
         });
     });
 });
