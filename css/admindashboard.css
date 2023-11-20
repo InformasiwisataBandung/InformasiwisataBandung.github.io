@@ -1,0 +1,11 @@
+/* custom.css */
+
+/* Change the background color of the sidebar */
+aside.aside {
+    background-color: #00FF00; /* Change this to your desired shade of green */
+}
+
+/* If there is a hover effect, update it accordingly */
+aside.aside:hover {
+    background-color: #00CC00; /* Change this to your desired shade of green on hover */
+}
