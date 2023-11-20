@@ -9,3 +9,7 @@ aside.aside {
 aside.aside:hover {
     background-color: #00CC00; /* Change this to your desired shade of green on hover */
 }
+
+aside-tools {
+    background-color: #00FF00;
+}
