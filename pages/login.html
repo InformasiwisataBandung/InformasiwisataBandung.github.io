@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Login - Wisata Bandung</title>
-    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="../css/login.css">
     <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16" />
+    <style>
+        @keyframes loading {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #7983ff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: loading 1s linear infinite;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-   <section>
+    <section>
         <div class="box">
             <div class="form">
-                <!-- <img src="images/logoBDG.jpg" class="user" alt=""> -->
                 <img src="../images/logoBDG.jpg" class="user" alt="">
                 <h2>Login to your Account</h2>
                 <form id="loginForm" action="#">
-            
                     <div class="inputBx">
-                        <input type="text" name="username"  placeholder="Username" id="username" required autofocus>
-                        <!-- <img src="images/user.png" alt=""> -->
+                        <input type="text" name="username" placeholder="Username" id="username" required autofocus>
                     </div>
                     <div class="inputBx">
                         <input type="password" name="password" id="password" placeholder="Password" required>
-                        <!-- <img src="../images/eye-close.png" id="eyeicon" class="eye-icon"> -->
-                        <!-- <img src="images/lock.png" alt=""> -->
                     </div>
                     <div>
-                        <p id="error-message" class="error-message" ></p>
+                        <p id="error-message" class="error-message"></p>
                     </div>
                     
                     <br>
-                    <!-- <label class="remeber"><input type="checkbox"> Remember Me</label> -->
                     <div class="inputBx" > 
-                        <input  type="submit" name="submit" value="Login" id="submit" disabled>
+                        <input type="submit" name="submit" value="Login" id="submit" disabled>
+                        <div class="loading-spinner" id="loadingSpinner"></div>
                     </div>
                 </form>
                 <div>
-                    <!-- <span style="float: left;"><a href="#">Forgot Passward </a>
-                    </span> -->
-                    <span style="float:left;"><a href="../pages/register.html">Don't have an account?</a>
-                    </span>
+                    <span style="float:left;"><a href="../pages/register.html">Don't have an account?</a></span>
                 </div>
             </div>
         </div>
@@ -50,20 +66,6 @@
 
     <script src="../js/login.js" type="module"></script>
     <script src="../js/postsignup.js" type="module"></script>
-    <!-- <script>
-        let eyeicon = document.getElementById("eyeicon");
-        let password = document.getElementById("password");
-
-        eyeicon.onclick = function(){
-            if(password.type == "password"){
-                password.type = "text";
-                eyeicon.src = "../images/eye-open.png";
-            }else{
-                password.type = "password";
-                eyeicon.src = "../images/eye-close.png";
-            }
-        }
-    </script> -->
-
-   </body>
+    
+</body>
 </html>

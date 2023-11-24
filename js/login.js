@@ -7,6 +7,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const passwordInput = document.getElementById("password");
     const submitButton = document.getElementById("submit");
     const errorMessage = document.getElementById("error-message");
+        const loadingSpinner = document.getElementById("loadingSpinner");
+
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            loadingSpinner.classList.add("active"); // Tampilkan animasi loading saat tombol login ditekan
+            setTimeout(() => {
+                // Simulasi proses login (Anda dapat menambahkan kode login aktual di sini)
+                // Setelah selesai, Anda bisa menghapus setTimeout ini dan menambahkan logika login yang sesungguhnya
+                loadingSpinner.classList.remove("active"); // Sembunyikan animasi loading setelah proses login selesai (simulasi)
+            }, 2000); // Waktu simulasi proses login (2 detik), ganti dengan logika login sebenarnya
+        });
 
     // Fungsi untuk mengecek apakah form telah diisi dengan benar
     const validation = () => {
