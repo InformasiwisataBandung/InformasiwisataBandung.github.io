@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    // Panggil fungsi validation saat input berubah
+    // Panggil fungsi validation saat input berubah 
     usernameInput.addEventListener("input", validation);
     passwordInput.addEventListener("input", validation);
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 setCookieWithExpireHour("token", token, 2);
                 window.location.href = "../pages/dashboard.html";
             } else {
-                // Cek login untuk admin jika login user biasa gagal
+                // Cek login untuk admin Jika username, dan password yang di input admin
                 fetch("https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-SigninAdmin", {
                     method: "POST",
                     headers: {
