@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
           showDeleteConfirmationModal(postId);
         });
       });
-    };
+    }; //end const fillTable = (data) => {
   
     const showDeleteConfirmationModal = (postId) => {
       const deleteConfirmButton = document.getElementById('deleteConfirmButton');
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       // Tampilkan modal konfirmasi penghapusan
       document.getElementById('deleteConfirmationModal').classList.add('is-active');
-    };
+    }; // end const showDeleteConfirmationModal = (postId) => {
   
     const closeDeleteConfirmationModal = () => {
       // Tutup modal konfirmasi penghapusan
@@ -77,5 +77,5 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   
     fetchData().then((data) => fillTable(data));
-  });
+});
   
