@@ -1,4 +1,3 @@
-// forms.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("wisataForm");
   const submitBtn = document.getElementById("submitBtn");
@@ -27,10 +26,9 @@ function showNotification(message, type) {
   notification.className = `notification is-${type}`;
   notification.textContent = message;
   
-  //document.body.appendChild(notification);
   notificationContainer.appendChild(notification);
 
-  // Remove the notification after 3 seconds (adjust as needed)
+  // Remove the notification after 3 seconds
   setTimeout(() => {
     notificationContainer.removeChild(notification);
   }, 3000);
@@ -63,7 +61,6 @@ function submitWisata() {
   };
 
   // Kirim data melalui API menggunakan metode yang sesuai (misalnya, fetch)
-  // Contoh menggunakan fetch:
   fetch("https://us-central1-bustling-walker-340203.cloudfunctions.net/function-6CreateWisata", {
     method: "POST",
     headers: {
@@ -92,7 +89,7 @@ function submitWisata() {
     })
     .then(data => {
       console.log("Success:", data);
-      showNotification("Data has been successfully submitted", "success");
+      showNotification("Dataa has been successfully submitted", "success");
       // Lakukan sesuatu setelah berhasil, seperti memberikan umpan balik kepada pengguna atau mereset formulir
     })
     .catch((error) => {
