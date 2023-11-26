@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Fungsi untuk mengisi tabel dengan data
-    // Fungsi untuk mengisi tabel dengan data
     const fillTable = (data) => {
     const tableBody = document.getElementById('table-body');
 
@@ -22,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (data && data.data) {
         // Iterasi melalui data dan tambahkan baris baru ke tabel
         data.data.forEach((item) => {
-            const row = `
+            const row = 
+            `
                 <tr>
                     <td class="is-checkbox-cell">
                         <label class="b-checkbox checkbox">
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="button is-small is-warning" type="button">
                                 <span class="icon"><i class="mdi mdi-file-edit"></i></span>
                             </button>
-                            <button class="button is-small is-danger jb-modal" data-target="sample-modal" type="button">
+                            <button class="button is-small is-danger jb-modal" data-target="modals" type="button">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                             </button>
                         </div>
@@ -54,7 +54,35 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     };
 
-
     // Panggil fetchData dan fillTable ketika halaman dimuat
     fetchData().then((data) => fillTable(data));
+
+    // Event listener for delete button click
+    document.getElementById('table-body').addEventListener('click', function (event) {
+        if (event.target.classList.contains('is-danger')) {
+            // Show the delete confirmation modal
+            document.getElementById('deleteModal').classList.add('is-active');
+
+            // Event listener for confirm delete button click
+            document.getElementById('confirmDelete').addEventListener('click', function () {
+                // Close the modal
+                document.getElementById('deleteModal').classList.remove('is-active');
+
+                // Get the post ID from the clicked row (adjust this based on your data structure)
+                const postId = event.target.closest('tr').dataset.postId;
+
+                // Call the API to delete the post
+                deletePost(postId);
+            });
+
+            // Event listener for modal close
+            document.querySelector('.jb-modal-close').addEventListener('click', function () {
+                document.getElementById('deleteModal').classList.remove('is-active');
+            });
+        }
+    });
+
+
+
+
 });

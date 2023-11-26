@@ -79,7 +79,7 @@ function submitWisata() {
       //showNotification("Failed to submit data. Please try again.", "danger");
       //errorMessage.textContent = "Data belum berhasil di input";
       // Handle error, misalnya memberikan umpan balik atau menampilkan pesan kesalahan
-    //});
+    //});    
 
     .then(response => {
       if (!response.ok) {
