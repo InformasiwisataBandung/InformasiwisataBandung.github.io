@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
           // // Tutup modal konfirmasi penghapusan
           //closeDeleteConfirmationModal();
 
+          //update 4
           .then(response => {
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);
@@ -115,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchData().then((data) => fillTable(data));
           })
           .catch(error => {
-            console.error('Error deleting data:', error);
+            console.error('Errorr deleting data:', error);
             // Tampilkan pesan kesalahan ke pengguna
             alert('Error deleting data. Please try again.');
           })
@@ -139,3 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchData().then((data) => fillTable(data));
 
 }); //end document.addEventListener('DOMContentLoaded', function () {
+
+
+
+
+
