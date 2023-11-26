@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
         // Tutup modal konfirmasi penghapusan
         closeDeleteConfirmationModal();
-      };
+      }; //end deleteConfirmButton.onclick = () => {
   
       // Tampilkan modal konfirmasi penghapusan
       document.getElementById('deleteConfirmationModal').classList.add('is-active');

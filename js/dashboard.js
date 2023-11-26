@@ -68,9 +68,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for delete button click
     
-
     // Function to delete post by calling the API
-    
 
+    const showDeleteConfirmationModal = (postId) => {
+        const deleteConfirmButton = document.getElementById('deleteConfirmButton');
+        deleteConfirmButton.onclick = () => {
+        // Panggil API untuk menghapus data dengan menggunakan postId
+        // Ganti URL dengan URL API delete yang sesuai
+        const apiUrl = `https://us-central1-bustling-walker-340203.cloudfunctions.net/function-9DeleteWisata`;
+        fetch(apiUrl, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              filter: {
+                _id: {
+                  $oid: postId,
+                },
+              },
+            }),
+        }) //end fetch(apiUrl, {
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              // Lakukan sesuatu setelah berhasil menghapus, misalnya refresh tabel
+              fetchData().then((data) => fillTable(data));
+            })
+            .catch(error => console.error('Error deleting data:', error));
+    
+          // Tutup modal konfirmasi penghapusan
+          closeDeleteConfirmationModal();
+        }; //end deleteConfirmButton.onclick = () => {
+    
+        // Tampilkan modal konfirmasi penghapusan
+        document.getElementById('deleteConfirmationModal').classList.add('is-active');
+    }; // end const showDeleteConfirmationModal = (postId) => {
+    
+    // Fungsi untuk menutup Modal Konfirmasi Hapus Data?
+    const closeDeleteConfirmationModal = () => {
+        // Tutup modal konfirmasi penghapusan
+        document.getElementById('deleteConfirmationModal').classList.remove('is-active');
+    };
+
+    fetchData().then((data) => fillTable(data));
 
 }); //end document.addEventListener('DOMContentLoaded', function () {
