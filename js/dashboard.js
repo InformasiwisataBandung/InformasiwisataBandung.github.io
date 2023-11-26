@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Panggil API untuk menghapus data dengan menggunakan postId
         // Ganti URL dengan URL API delete yang sesuai
         const apiUrl = `https://us-central1-bustling-walker-340203.cloudfunctions.net/function-9DeleteWisata`;
+
         fetch(apiUrl, {
             method: 'DELETE',
             headers: {
@@ -90,16 +91,39 @@ document.addEventListener('DOMContentLoaded', function () {
               },
             }),
         }) //end fetch(apiUrl, {
-            .then(response => response.json())
-            .then(data => {
-              console.log(data);
+            //update 3
+            //.then(response => response.json())
+            //.then(data => {
+              //console.log(data);
               // Lakukan sesuatu setelah berhasil menghapus, misalnya refresh tabel
-              fetchData().then((data) => fillTable(data));
-            })
-            .catch(error => console.error('Error deleting data:', error));
+              //fetchData().then((data) => fillTable(data));
+            //})
+            //.catch(error => console.error('Error deleting data:', error));
     
-          // Tutup modal konfirmasi penghapusan
-          closeDeleteConfirmationModal();
+          // // Tutup modal konfirmasi penghapusan
+          //closeDeleteConfirmationModal();
+
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log(data);
+            // Lakukan sesuatu setelah berhasil menghapus, misalnya refresh tabel
+            fetchData().then((data) => fillTable(data));
+          })
+          .catch(error => {
+            console.error('Error deleting data:', error);
+            // Tampilkan pesan kesalahan ke pengguna
+            alert('Error deleting data. Please try again.');
+          })
+          .finally(() => {
+            // Tutup modal konfirmasi penghapusan, baik berhasil maupun gagal
+            closeDeleteConfirmationModal();
+          });
+
         }; //end deleteConfirmButton.onclick = () => {
     
         // Tampilkan modal konfirmasi penghapusan
