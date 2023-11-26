@@ -5,3 +5,5 @@ const fileInput = document.querySelector('#file-js-example input[type=file]');
       fileName.textContent = fileInput.files[0].name;
     }
   }
+
+  

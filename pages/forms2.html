@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
+<head>
+  <!-- Include necessary meta tags and stylesheets -->
+  <!-- ... -->
+
+  <!-- Include the main JavaScript file -->
+  <script type="module" src="../js/main.min.js"></script>
+
+  <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+</head>
+
+<body>
+  <!-- Your existing HTML content -->
+
+  <section class="section is-main-section">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-ballot"></i></span>
+          Add New Content
+        </p>
+      </header>
+      <div class="card-content">
+        <form id="wisataForm" onsubmit="event.preventDefault(); submitWisata();">
+          <!-- ... (existing form fields) -->
+
+          <!-- judul -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Title</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="nama" class="input" type="text" placeholder="e.g. Keindahan Gunung Tangkuban Parahu" required>
+                </div>
+                <p class="help is-danger">
+                  This field is required
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ... (existing form fields) -->
+
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+              <div class="field is-grouped">
+                <div class="control">
+                  <button type="submit" class="button is-primary">
+                    <span>Submit</span>
+                  </button>
+                </div>
+                <div class="control">
+                  <button type="button" class="button is-primary is-outlined">
+                    <span>Reset</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ... (existing content) -->
+  </section>
+
+  <!-- Your existing footer and scripts -->
+
+</body>
+</html>

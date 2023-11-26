@@ -178,93 +178,20 @@
       </ul>
     </div>
   </aside>
-  <section class="section is-title-bar">
-    <div class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <ul>
-            <li>Admin</li>
-            <li>Forms</li>
-          </ul>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <div class="buttons is-right">
-            <a href="https://github.com/vikdiesel/admin-one-bulma-dashboard" target="_blank" class="button is-primary">
-              <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="hero is-hero-bar">
-    <div class="hero-body">
-      <div class="level">
-        <div class="level-left">
-          <div class="level-item"><h1 class="title">
-            Forms
-          </h1></div>
-        </div>
-        <div class="level-right" style="display: none;">
-          <div class="level-item"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+
   <section class="section is-main-section">
     <div class="card">
       <header class="card-header">
         <p class="card-header-title">
           <span class="icon"><i class="mdi mdi-ballot"></i></span>
-          Forms
+          Add New Content
         </p>
       </header>
       <div class="card-content">
-        <form method="get">
-          <!-- field nama dan email -->
-          <!-- <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">From</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded has-icons-left">
-                  <input class="input" type="text" placeholder="Name">
-                  <span class="icon is-small is-left"><i class="mdi mdi-account "></i></span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control is-expanded has-icons-left has-icons-right">
-                  <input class="input is-success" type="email" placeholder="Email" value="alex@smith.com">
-                  <span class="icon is-small is-left"><i class="mdi mdi-mail"></i></span>
-                  <span class="icon is-small is-right"><i class="mdi mdi-check"></i></span>
-                </p>
-              </div>
-            </div>
-          </div> -->
-          <!-- field no hp -->
-          <!-- <div class="field is-horizontal">
-            <div class="field-label"></div>
-            <div class="field-body">
-              <div class="field is-expanded">
-                <div class="field has-addons">
-                  <p class="control">
-                    <a class="button is-static">
-                      +44
-                    </a>
-                  </p>
-                  <p class="control is-expanded">
-                    <input class="input" type="tel" placeholder="Your phone number">
-                  </p>
-                </div>
-                <p class="help">Do not enter the first zero</p>
-              </div>
-            </div>
-          </div> -->
-          <!-- field categoru -->
+        <form id="wisataForm">
+          <!-- field category -->
+          <div id="notification-container"></div>
+          <br>
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Category</label>
@@ -272,11 +199,12 @@
             <div class="field-body">
               <div class="field is-narrow">
                 <div class="control">
-                  <div class="select is-fullwidth">
-                    <select>
-                      <option>Business development</option>
-                      <option>Marketing</option>
-                      <option>Sales</option>
+                  <div id="kategori" class="select is-fullwidth">
+                    <select id="categorySelect">
+                      <option value="Tempat Wisata">Tempat Wisata</option>
+                      <option value="Tempat Bersejarah">Tempat Bersejarah</option>
+                      <option value="Kuliner Wisata">Kuliner Wisata</option>
+                      <option value="Wisata Alam">Wisata Alam</option>
                     </select>
                   </div>
                 </div>
@@ -285,7 +213,7 @@
           </div>
 
           <hr>
-          
+          <!-- title -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Title</label>
@@ -293,15 +221,15 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Keindahan Gunung Tangkuban Parahu">
+                  <input id="nama" class="input" type="text" placeholder="e.g. Keindahan Gunung Tangkuban Parahu">
                 </div>
-                <p class="help is-danger">
+                <p id="namaError" class="help is-danger">
                   This field is required
                 </p>
               </div>
             </div>
           </div>
-
+          <!-- content -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Content</label>
@@ -309,10 +237,68 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <textarea class="textarea" placeholder="Isi Post"></textarea>
+                  <textarea id="konten" class="textarea" placeholder="Isi Post"></textarea>
                 </div>
               </div>
             </div>
+          </div>
+          <hr>
+          <!-- address -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Address</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="alamat" class="input" type="text" placeholder="e.g. Jalan 123">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- image -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Image</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div id="file-js-example" class="file has-name">
+                    <label class="file-label">
+                      <input id="gambar" class="file-input" type="file" name="gambar">
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                          Choose a file…
+                        </span>
+                      </span>
+                      <span class="file-name">
+                        No file uploaded
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- rating -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Rating</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input id="rating" class="input" type="number" step="0.1" min="0" max="5" placeholder="Enter rating">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p id="error-message" class="error-message" ></p>
           </div>
           <hr>
           <div class="field is-horizontal">
@@ -323,12 +309,12 @@
               <div class="field">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-primary">
+                    <button id="submitBtn" type="button" class="button is-primary">
                       <span>Submit</span>
                     </button>
                   </div>
                   <div class="control">
-                    <button type="button" class="button is-primary is-outlined">
+                    <button id="resetBtn" type="button" class="button is-primary is-outlined">
                       <span>Reset</span>
                     </button>
                   </div>
@@ -412,7 +398,7 @@
           <div class="field-label is-normal"><label class="label">File</label></div>
           <div class="field-body">
             <div class="field">
-              <div class="field file">
+              <div class="field file ">
                 <label class="upload control">
                   <a class="button is-primary">
                     <span class="icon"><i class="mdi mdi-upload"></i></span>
@@ -485,11 +471,21 @@
     </div>
     <button class="modal-close is-large jb-modal-close" aria-label="close"></button>
   </div>
+  
+  
+
+  <!-- <div class="notification is-primary">
+    <button class="delete"></button>
+    Lorem ipsum
+</div> -->
 </div>
 
 <!-- Scripts below are for demo only -->
 <script type="text/javascript" src="../js/main.min.js"></script>
+<script type="module" src="../js/forms2.js"></script>
 <script type="module" src="../js/forms.js"></script>
+<!-- <script type="module" src="../js/notif.js"></script> -->
+
 
 <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
