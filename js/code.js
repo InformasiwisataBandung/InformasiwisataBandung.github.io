@@ -85,5 +85,5 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   
     fetchData().then((data) => fillTable(data));
-  });
+});
   
