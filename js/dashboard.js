@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fungsi untuk mengisi tabel dengan data
     const fillTable = (data) => {
-    const tableBody = document.getElementById('table-body');
+        const tableBody = document.getElementById('table-body');
 
-    // Bersihkan isi tabel sebelum mengisi data baru
-    tableBody.innerHTML = '';
+        // Bersihkan isi tabel sebelum mengisi data baru
+        tableBody.innerHTML = '';
 
-    // Cek apakah data ada di dalam property "data"
-    if (data && data.data) {
+        // Cek apakah data ada di dalam property "data"
+        if (data && data.data) {
         // Iterasi melalui data dan tambahkan baris baru ke tabel
         data.data.forEach((item) => {
             const row = 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="button is-small is-warning" type="button">
                                 <span class="icon"><i class="mdi mdi-file-edit"></i></span>
                             </button>
-                            <button class="button is-small is-danger jb-modal delete-post" data-target="deleteConfirmationModal" data-post-id="${item._id.$oid}" type="button">
+                            <button class="button is-small is-danger jb-modal delete-post" data-target="deleteConfirmationModal" data-post-id="${item._id?.$oid}" type="button">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                             </button>
                         </div>
@@ -53,8 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Set up event listeners for delete buttons
         const deleteButtons = document.querySelectorAll('.delete-post');
         deleteButtons.forEach(button => {
-        button.addEventListener('click', () => {
+            button.addEventListener('click', () => {
           const postId = button.getAttribute('data-post-id');
+          //const postId = button.dataset.postId;
           showDeleteConfirmationModal(postId);
             });
         });

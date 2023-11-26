@@ -6,35 +6,43 @@ document.addEventListener('DOMContentLoaded', function () {
     const fillTable = (data) => {
       const tableBody = document.getElementById('table-body');
   
-      // ...
+      // Bersihkan isi tabel sebelum mengisi data baru
+      tableBody.innerHTML = '';
   
-      data.data.forEach((item) => {
-        const row = `
-          <!-- ... -->
-          <td class="is-actions-cell">
-            <div class="buttons is-right">
-              <button class="button is-small is-warning" type="button">
-                <span class="icon"><i class="mdi mdi-file-edit"></i></span>
-              </button>
-              <button class="button is-small is-danger jb-modal delete-post" data-target="deleteConfirmationModal" data-post-id="${item._id.$oid}" type="button">
-                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-              </button>
-            </div>
-          </td>
-          <!-- ... -->
-        `;
-        tableBody.innerHTML += row;
-      });
+      if (data && data.data) {
+        data.data.forEach((item) => {
+          const row = `
+            <tr>
+              <!-- ... -->
+              <td class="is-actions-cell">
+                <div class="buttons is-right">
+                  <button class="button is-small is-warning" type="button">
+                    <span class="icon"><i class="mdi mdi-file-edit"></i></span>
+                  </button>
+                  <button class="button is-small is-danger jb-modal delete-post" data-target="deleteConfirmationModal" data-post-id="${item._id?.$oid}" type="button">
+                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                  </button>
+                </div>
+              </td>
+              <!-- ... -->
+            </tr>
+          `;
   
-      // Set up event listeners for delete buttons
-      const deleteButtons = document.querySelectorAll('.delete-post');
-      deleteButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const postId = button.getAttribute('data-post-id');
-          showDeleteConfirmationModal(postId);
+          tableBody.innerHTML += row;
         });
-      });
-    }; //end const fillTable = (data) => {
+  
+        // Set up event listeners for delete buttons
+        const deleteButtons = document.querySelectorAll('.delete-post');
+        deleteButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const postId = button.getAttribute('data-post-id');
+            showDeleteConfirmationModal(postId);
+          });
+        });
+      } else {
+        console.error('Data structure is not as expected:', data);
+      }
+    };
   
     const showDeleteConfirmationModal = (postId) => {
       const deleteConfirmButton = document.getElementById('deleteConfirmButton');
@@ -65,11 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
   
         // Tutup modal konfirmasi penghapusan
         closeDeleteConfirmationModal();
-      }; //end deleteConfirmButton.onclick = () => {
+      };
   
       // Tampilkan modal konfirmasi penghapusan
       document.getElementById('deleteConfirmationModal').classList.add('is-active');
-    }; // end const showDeleteConfirmationModal = (postId) => {
+    };
   
     const closeDeleteConfirmationModal = () => {
       // Tutup modal konfirmasi penghapusan
@@ -77,5 +85,5 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   
     fetchData().then((data) => fillTable(data));
-});
+  });
   
