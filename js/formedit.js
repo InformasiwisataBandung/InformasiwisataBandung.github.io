@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Set up event listener for Done button
     const submitBtn = document.getElementById('editBtn');
     submitBtn.addEventListener('click', async () => {
-        // Handle form submission here
+        // Tangani pengisian formulir di sini
         const updatedData = {
             nama: document.getElementById('nama').value,
             deskripsi: document.getElementById('konten').value,
@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
             jenis: document.getElementById('categorySelect').value,
         };
 
-        // Handle the update API call here
+        // Tangani panggilan API update di sini
         await updateDataFunction(updatedData);
 
-        // Redirect to the dashboard or another page after successful update
+        // Alihkan ke dasbord setelah pembaruan berhasil
         window.location.href = 'admindashboard.html';
     });    
 
