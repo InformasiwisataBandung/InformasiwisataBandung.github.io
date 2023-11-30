@@ -61,7 +61,7 @@ function submitWisata() {
   };
 
   // Kirim data melalui API menggunakan metode yang sesuai (misalnya, fetch)
-  fetch("https://us-central1-bustling-walker-340203.cloudfunctions.net/function-6CreateWisata", {
+  fetch("https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-6CreateWisata", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

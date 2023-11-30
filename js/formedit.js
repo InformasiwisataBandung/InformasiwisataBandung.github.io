@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });    
 
 });
-
+      
 // Add this function to handle the API call for updating data
 const updateDataFunction = async (data) => {
     try {
