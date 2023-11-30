@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Add this function to handle the API call for updating data
 const updateDataFunction = async (data) => {
     try {
-        const response = await fetch('https://us-central1-bustling-walker-340203.cloudfunctions.net/function-8UpdateWisata', {
+        const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-8UpdateWisata', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
