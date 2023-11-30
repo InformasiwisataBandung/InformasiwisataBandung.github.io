@@ -26,7 +26,7 @@ function showNotification(message, type) {
   notification.className = `notification is-${type}`;
   notification.textContent = message;
   
-  notificationContainer.appendChild(notification);
+  notificationContainer.appendChild(notification); 
 
   // Remove the notification after 3 seconds
   setTimeout(() => {

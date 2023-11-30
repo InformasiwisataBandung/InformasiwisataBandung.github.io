@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Errorr fetching data:', error);
         }
     };
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="button is-small is-warning" type="button">
                                 <span class="icon"><i class="mdi mdi-file-edit"></i></span>
                             </button>
-                            <button class="button is-small is-danger jb-modal delete-post" data-target="deleteConfirmationModal" data-post-id="${item._id?.$oid}" type="button">
+                            <button class="button is-small is-danger jb-modal delete-post" data-target="deleteConfirmationModal" data-post-name="${item.nama}" type="button">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                             </button>
                         </div>
@@ -54,11 +54,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const deleteButtons = document.querySelectorAll('.delete-post');
         deleteButtons.forEach(button => {
             button.addEventListener('click', () => {
-          const postId = button.getAttribute('data-post-id');
-          //const postId = button.dataset.postId;
-          showDeleteConfirmationModal(postId);
+            const postName = button.getAttribute('data-post-name');
+            //const postId = button.dataset.postId;
+            showDeleteConfirmationModal(postName);
             });
         });
+
+        // Set up event listeners for edit buttons
+        const editButtons = document.querySelectorAll('.button.is-warning');
+        editButtons.forEach(button => {
+        button.addEventListener('click', () => {
+        const postName = button.parentElement.parentElement.parentElement.querySelector('td[data-label="Judul"]').innerText;
+        // Redirect to the edit form with the postName parameter
+        window.location.href = `formedit.html?postName=${postName}`;
+    });
+});
     } else {
         console.error('Data structure is not as expected:', data);
     }
@@ -71,10 +81,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Function to delete post by calling the API
 
-    const showDeleteConfirmationModal = (postId) => {
+    const showDeleteConfirmationModal = (postName) => {
         const deleteConfirmButton = document.getElementById('deleteConfirmButton');
+
+        // Menampilkan nama post yang akan dihapus di dalam modal
+        document.getElementById('postNameToDelete').innerHTML = `Post: ${postName}`;
+
         deleteConfirmButton.onclick = () => {
-        // Panggil API untuk menghapus data dengan menggunakan postId
+        // Panggil API untuk menghapus data berdasarkan nama
         // Ganti URL dengan URL API delete yang sesuai
         const apiUrl = `https://us-central1-bustling-walker-340203.cloudfunctions.net/function-9DeleteWisata`;
 
@@ -85,9 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify({
               filter: {
-                _id: {
-                  $oid: postId,
-                },
+                nama: postName,
               },
             }),
         }) //end fetch(apiUrl, {
@@ -137,7 +149,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('deleteConfirmationModal').classList.remove('is-active');
     };
 
-    fetchData().then((data) => fillTable(data));
+    // Set up event listeners for edit buttons
+    const editButtons = document.querySelectorAll('.edit-post');
+    editButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const postName = button.getAttribute('data-post-name');
+        // Redirect to the edit form with the postName parameter
+        window.location.href = `formedit.html?postName=${postName}`;
+      });
+    });
+
+  fetchData().then((data) => fillTable(data));
 
 }); //end document.addEventListener('DOMContentLoaded', function () {
 

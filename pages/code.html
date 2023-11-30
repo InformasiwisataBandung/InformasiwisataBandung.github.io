@@ -1,20 +1,29 @@
 <!-- Modal for Delete Confirmation -->
+<!-- ... (bagian lainnya tetap sama) ... -->
+
+<!-- modal -->
 <div id="deleteConfirmationModal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Konfirmasi Hapus</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <p>Apakah Anda yakin ingin menghapus post ini?</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button id="deleteConfirmButton" class="button is-danger">Ya</button>
-        <button class="button jb-modal-close">Tidak</button>
-      </footer>
-    </div>
+  <div class="modal-background"></div> 
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Konfirmasi Hapus</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <p>Apakah Anda yakin ingin <b>menghapus</b>  post ini?</p>
+      <p id="postNameToDelete" style="font-weight: bold;"></p>
+    </section>
+    <footer class="modal-card-foot">
+      <button id="deleteConfirmButton" class="button is-danger">Yes</button>
+      <button class="button jb-modal-close">No</button>
+    </footer>
   </div>
+</div>
+<!-- modal end -->
+
+<!-- ... (bagian lainnya tetap sama) ... -->
+
+
 
 
   <!-- 
