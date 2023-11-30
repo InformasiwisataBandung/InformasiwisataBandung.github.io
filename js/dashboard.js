@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fillTable = (data) => {
         const tableBody = document.getElementById('table-body');
 
-        // Bersihkan isi tabel sebelum mengisi data baru
+        // Bersihkan isi tabel sebelum mengisi data baru   
         tableBody.innerHTML = '';
 
         // Cek apakah data ada di dalam property "data"
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const postName = button.getAttribute('data-post-name');
             //const postId = button.dataset.postId;
             showDeleteConfirmationModal(postName);
-            });
+          });
         });
 
         // Set up event listeners for edit buttons
@@ -67,11 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const postName = button.parentElement.parentElement.parentElement.querySelector('td[data-label="Judul"]').innerText;
         // Redirect to the edit form with the postName parameter
         window.location.href = `formedit.html?postName=${postName}`;
-    });
-});
+        });
+        });
     } else {
         console.error('Data structure is not as expected:', data);
-    }
+      }
     }; //end const fillTable = (data) => {
 
     // Panggil fetchData dan fillTable ketika halaman dimuat
