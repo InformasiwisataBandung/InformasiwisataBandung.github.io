@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const postName = urlParams.get('postName');
 
-    // Fetch data based on the postName
+    // Mengambil data berdasarkan postName
     // You need to implement this fetch function based on your API
     const fetchDataForEdit = async (postName) => {
         try {
@@ -20,19 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const populateFormForEdit = async () => {
         const data = await fetchDataForEdit(postName);
 
-        // Populate form fields with data
+        // Mengisi bidang formulir dengan data
         if (data) {
             document.getElementById('nama').value = data.nama;
             document.getElementById('konten').value = data.deskripsi;
             document.getElementById('alamat').value = data.alamat;
 
-            // Handle file input separately
+            // Menangani input file secara terpisah
             const fileInput = document.getElementById('gambar');
             fileInput.parentNode.querySelector('.file-name').innerText = data.gambar;
 
             document.getElementById('rating').value = data.rating;
 
-            // Set selected category in the dropdown
+            // Tetapkan kategori yang dipilih di menu dropdown
             const categorySelect = document.getElementById('categorySelect');
             const selectedCategory = data.jenis;
             for (let i = 0; i < categorySelect.options.length; i++) {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Fetch data and populate form on page load
+    // Mengambil data dan mengisi formulir saat memuat halaman
     populateFormForEdit();
 
     // Set up event listener for Done button
