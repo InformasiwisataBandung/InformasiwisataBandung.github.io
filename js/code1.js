@@ -93,3 +93,60 @@ const updateDataFunction = async (data) => {
         throw error; // Re-throw the error for the calling function to catch
     }
 };
+
+/**
+ * func UpdateWisataHTTP(w http.ResponseWriter, r *http.Request) {
+    // ... (same as your existing code)
+
+	filter := requestBody["filter"].(map[string]interface{})
+	update := requestBody["update"].(map[string]interface{})
+
+	filterBSON, err := convertToBSON(filter)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	updateBSON, err := convertToBSON(update)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	err = gisbdg.UpdateWisata("mongodb+srv://MigrasiData:Salman123456.@cluster0.ot8qmry.mongodb.net", "InformasiWisataBandung", "TempatWisata", filterBSON, updateBSON)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	response := map[string]interface{}{
+		"message": "Data updated successfully",
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+}
+
+//...
+
+func UpdateWisata(databaseURL, databaseName, collectionName string, filter, update bson.D) error {
+	// Connect to the MongoDB database
+	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI(databaseURL))
+	if err != nil {
+		return err
+	}
+	defer client.Disconnect(context.Background())
+
+	// Get the collection
+	collection := client.Database(databaseName).Collection(collectionName)
+
+	// Update the document in the collection
+	_, err = collection.UpdateOne(context.Background(), filter, update)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+ */
