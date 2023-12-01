@@ -63,10 +63,19 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Tangani panggilan API update di sini
-        await updateDataFunction(updatedData);
+        //await updateDataFunction(updatedData);
 
         // Alihkan ke dasbord setelah pembaruan berhasil
-        window.location.href = 'admindashboard.html';
+        //window.location.href = 'admindashboard.html';
+        try {
+            await updateDataFunction(updatedData);
+
+            // Redirect to dashboard after successful update
+            window.location.href = 'admindashboard.html';
+        } catch (error) {
+            console.error('Error updating data:', error);
+            // Show an alert or handle the error accordingly
+        }
     });    
 
 });
@@ -88,7 +97,9 @@ const updateDataFunction = async (data) => {
 
         const result = await response.json();
         console.log('Update result:', result);
+
     } catch (error) {
         console.error('Errorr updating data:', error);
+        throw error; // Re-throw the error for the calling function to catch
     }
 };
