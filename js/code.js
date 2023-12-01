@@ -1,13 +1,13 @@
-// ... (your existing code)
-
-// Set up event listeners for edit buttons
-const editButtons = document.querySelectorAll('.edit-post');
-editButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const postName = button.getAttribute('data-post-name');
-        // Redirect to the edit form with the postName parameter
-        window.location.href = `formedit.html?postName=${postName}`;
-    });
-});
-
-// ... (your existing code)
+const fetchData = async () => {
+    try {
+        const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-7ReadWisata');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return null;
+    }
+};

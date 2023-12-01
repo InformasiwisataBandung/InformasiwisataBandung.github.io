@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const data = await fetchDataForEdit(postName);
 
         // Mengisi bidang formulir dengan data
-        if (data) {
+        if (data && data.data) {
             document.getElementById('nama').value = data.nama;
             document.getElementById('konten').value = data.deskripsi;
             document.getElementById('alamat').value = data.alamat;
@@ -54,13 +54,25 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.addEventListener('click', async () => {
         // Tangani pengisian formulir di sini
         const updatedData = {
-            nama: document.getElementById('nama').value,
-            deskripsi: document.getElementById('konten').value,
-            alamat: document.getElementById('alamat').value,
-            gambar: document.getElementById('gambar').value,
-            rating: document.getElementById('rating').value,
-            jenis: document.getElementById('categorySelect').value,
-        };
+            filter: { nama: postName },
+            update: {
+                $set: {
+                    jenis: document.getElementById('categorySelect').value,
+                    deskripsi: document.getElementById('konten').value,
+                    //nama: document.getElementById('nama').value,
+                    alamat: document.getElementById('alamat').value,
+                    gambar: document.getElementById('gambar').value,
+                    rating: document.getElementById('rating').value,
+                    // ... other fields
+                },
+            },
+            //nama: document.getElementById('nama').value,
+            // deskripsi: document.getElementById('konten').value,
+            // alamat: document.getElementById('alamat').value,
+            // gambar: document.getElementById('gambar').value,
+            // rating: document.getElementById('rating').value,
+            // jenis: document.getElementById('categorySelect').value,
+        }; //const updatedData = {
 
         // Tangani panggilan API update di sini
         //await updateDataFunction(updatedData);
@@ -96,10 +108,20 @@ const updateDataFunction = async (data) => {
         }
 
         const result = await response.json();
-        console.log('Update result:', result);
+        //console.log('Update result:', result);
 
+        // Check if the expected result structure is present
+        if (result && result.message === "Data updated successfully") {
+            console.log('Update result:', result);
+        } else {
+            throw new Error('Unexpected response format');
+        }
     } catch (error) {
         console.error('Errorr updating data:', error);
         throw error; // Re-throw the error for the calling function to catch
     }
+    //updateeeee
+    fetchDataForEdit(postName).then(data => {
+        populateFormForEdit(data);
+    });
 };
