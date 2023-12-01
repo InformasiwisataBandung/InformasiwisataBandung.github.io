@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         await updateDataFunction(updatedData);
 
         // Alihkan ke dasbord setelah pembaruan berhasil
-        window.location.href = 'dashboard.html';
+        window.location.href = 'admindashboard.html';
     });    
 
 });
