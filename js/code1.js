@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fetch data based on the postName
     const fetchDataForEdit = async (postName) => {
         try {
-            const response = await fetch(`https://us-central1-bustling-walker-340203.cloudfunctions.net/function-7ReadWisata`);
+            const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-7ReadWisata');
             const data = await response.json();
 
             // Temukan data yang sesuai dengan postName
@@ -86,7 +86,3 @@ const updateDataFunction = async (data) => {
         console.error('Error updating data:', error);
     }
 };
-
-
-
-

@@ -162,8 +162,3 @@ document.addEventListener('DOMContentLoaded', function () {
   fetchData().then((data) => fillTable(data));
 
 }); //end document.addEventListener('DOMContentLoaded', function () {
-
-
-
-
-
