@@ -82,9 +82,13 @@ const updateDataFunction = async (data) => {
             body: JSON.stringify(data),
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const result = await response.json();
         console.log('Update result:', result);
     } catch (error) {
-        console.error('Error updating data:', error);
+        console.error('Errorr updating data:', error);
     }
 };
