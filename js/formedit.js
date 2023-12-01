@@ -120,7 +120,7 @@ const updateDataFunction = async (data) => {
         console.error('Errorr updating data:', error);
         throw error; // Re-throw the error for the calling function to catch
     }
-    //updateeeee
+    
     fetchDataForEdit(postName).then(data => {
         populateFormForEdit(data);
     });

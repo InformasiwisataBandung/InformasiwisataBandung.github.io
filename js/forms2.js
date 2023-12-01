@@ -44,7 +44,7 @@ function submitWisata() {
   const rating = document.getElementById("rating").value;
   //const errorMessage = document.getElementById("error-message");
 
-  // Lakukan validasi di sini jika diperlukan
+  
 
   // Buat objek data JSON
   const data = {
