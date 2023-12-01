@@ -74,12 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }; //end const fillTable = (data) => {
 
-    // Panggil fetchData dan fillTable ketika halaman dimuat
-    //fetchData().then((data) => fillTable(data));
-
-    // Event listener for delete button click
     
-    // Function to delete post by calling the API
 
     const showDeleteConfirmationModal = (postName) => {
         const deleteConfirmButton = document.getElementById('deleteConfirmButton');
@@ -103,17 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
               },
             }),
         }) //end fetch(apiUrl, {
-            //update 3
-            //.then(response => response.json())
-            //.then(data => {
-              //console.log(data);
-              // Lakukan sesuatu setelah berhasil menghapus, misalnya refresh tabel
-              //fetchData().then((data) => fillTable(data));
-            //})
-            //.catch(error => console.error('Error deleting data:', error));
-    
-          // // Tutup modal konfirmasi penghapusan
-          //closeDeleteConfirmationModal();
+            
 
           //update 4
           .then(response => {
