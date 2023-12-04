@@ -1,22 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postName = urlParams.get('postName');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const postName = urlParams.get('postName');
+    const postName = getParameterByName('postName');
 
     // Mengambil data berdasarkan postName
     // You need to implement this fetch function based on your API
-    const fetchDataForEdit = async (postName) => {
+    // const fetchDataForEdit = async (postName) => {
+    const fetchDataForEdit = async () => {
         try {
-            const response = await fetch(`https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-7ReadWisata`);
+            const response = await fetch(`https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-7ReadWisata?nama=${postName}`);
+            //const data = await response.json();
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
             const data = await response.json();
+            return data;
             
             // Temukan data yang sesuai dengan postName
-            const postData = data.data.find(item => item.nama === postName);
-            return postData;
+            // const postData = data.data.find(item => item.nama === postName);
+            // return postData;
         } catch (error) {
             console.error('Errorr fetching data for edit:', error);
+            //baru
+            return null;
         }
     };
 
+    // Fungsi untuk mengisi formulir dengan data
     const populateFormForEdit = async () => {
         const data = await fetchDataForEdit(postName);
 
@@ -82,10 +92,12 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             await updateDataFunction(updatedData);
 
+            // Fetch and fill the table after successful update
+            //fetchData().then((data) => fillTable(data));
             // Redirect to dashboard after successful update
             window.location.href = 'admindashboard.html';
         } catch (error) {
-            console.error('Error updating data:', error);
+            console.error('Errorr updating data:', error);
             // Show an alert or handle the error accordingly
         }
     });    

@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const password = passwordInput.value;
 
         // Kirim permintaan POST ke API login user
-        fetch("https://us-central1-bustling-walker-340203.cloudfunctions.net/SIgnin", {
+        fetch("https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/SIgnin-1Signin", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         // Pengolahan respons setelah login berhasil untuk admin
                         const adminToken = adminData.token;
                         setCookieWithExpireHour("adminToken", adminToken, 2);
-                        window.location.href = "../pages/Admindashboard.html";
+                        window.location.href = "../pages/admindashboard.html";
                     } else {
                         // Pesan kesalahan jika kedua login gagal
                         errorMessage.textContent = "User not found"; // Pesan kesalahan

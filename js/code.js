@@ -8,6 +8,9 @@ const fetchData = async () => {
         return data;
     } catch (error) {
         console.error('Error fetching data:', error);
+        if (error.response && error.response.text) {
+            console.error('Server response text:', await error.response.text());
+        }
         return null;
     }
 };
