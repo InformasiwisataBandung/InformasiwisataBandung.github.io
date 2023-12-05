@@ -6,7 +6,7 @@ const registerForm = document.getElementById("registerForm");
 const errorMessage = document.getElementById("error-message");
 
 // URL API register
-const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-Signup";
+const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-2Signup";
 
 // Tambahkan event listener untuk mengirim permintaan saat formulir dikirim
 registerForm.addEventListener("submit", async (event) => {
