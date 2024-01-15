@@ -1,6 +1,7 @@
 // Ambil elemen-elemen HTML yang diperlukan
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
+const nomorInput = document.getElementById("no_whatsapp");
 const submitButton = document.getElementById("submit");
 const registerForm = document.getElementById("registerForm");
 const errorMessage = document.getElementById("error-message");
@@ -15,6 +16,7 @@ registerForm.addEventListener("submit", async (event) => {
     //Ambil nilai dari input username dan password
     const username = usernameInput.value;
     const password = passwordInput.value;
+    const nomor = nomorInput.value;
 
     //Kirim permintaan POST ke API register
     try {
@@ -24,7 +26,7 @@ registerForm.addEventListener("submit", async (event) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, password, nomor }),
         });
 
         if (response.ok) {
