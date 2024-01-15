@@ -1,6 +1,5 @@
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
-//https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-1SIGNAUTHWA
 document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("loginForm");
     const message = document.getElementById("message");
