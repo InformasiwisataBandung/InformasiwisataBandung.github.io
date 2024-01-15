@@ -418,6 +418,10 @@ section {
     color: white;
 }
 
+#no_whatsapp::placeholder {
+    color: white;
+}
+
 #nama1::placeholder {
     color: white;
 }
