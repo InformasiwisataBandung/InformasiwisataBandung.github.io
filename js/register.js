@@ -1,20 +1,12 @@
-// Ambil elemen-elemen HTML yang diperlukan
-<<<<<<< HEAD
 const no_whatsappInput = document.getElementById("no_whatsapp");
-=======
->>>>>>> fde9c145fd34038fd91cd3a0399e96aa84e1200f
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const submitButton = document.getElementById("submit");
 const registerForm = document.getElementById("registerForm");
 const errorMessage = document.getElementById("error-message");
 
-// URL API register
-<<<<<<< HEAD
+// URL API 
 const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-1SIGNAUTHWA";
-=======
-const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-Signup";
->>>>>>> fde9c145fd34038fd91cd3a0399e96aa84e1200f
 
 // Tambahkan event listener untuk mengirim permintaan saat formulir dikirim
 registerForm.addEventListener("submit", async (event) => {
@@ -24,10 +16,8 @@ registerForm.addEventListener("submit", async (event) => {
     const no_whatsapp = no_whatsappInput.value;
     const username = usernameInput.value;
     const password = passwordInput.value;
-<<<<<<< HEAD
     const role = "user";
-=======
->>>>>>> fde9c145fd34038fd91cd3a0399e96aa84e1200f
+
 
     //Kirim permintaan POST ke API register
     try {
