@@ -1,7 +1,6 @@
 // Ambil elemen-elemen HTML yang diperlukan
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
-const nomorInput = document.getElementById("no_whatsapp");
 const submitButton = document.getElementById("submit");
 const registerForm = document.getElementById("registerForm");
 const errorMessage = document.getElementById("error-message");
@@ -13,10 +12,14 @@ const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunc
 registerForm.addEventListener("submit", async (event) => {
     event.preventDefault(); // Mencegah pengiriman form default
 
-    //Ambil nilai dari input username dan password
+    // Tampilkan loading spinner
+    const loadingSpinner = document.getElementById("loading-spinner");
+    loadingSpinner.classList.remove("hidden"); // Menghapus kelas "hidden"
+
+    // Ambil nilai dari input username dan password
+    const no_whatsapp = no_whatsappInput.value;
     const username = usernameInput.value;
     const password = passwordInput.value;
-    const nomor = nomorInput.value;
 
     //Kirim permintaan POST ke API register
     try {
@@ -26,20 +29,21 @@ registerForm.addEventListener("submit", async (event) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, password, nomor }),
+            body: JSON.stringify({ username, password }),
         });
 
         if (response.ok) {
-            // Pendaftaran berhasil, alihkan ke halaman login.html
-            //window.location.href = "../pages/login.html";
+            // Pendaftaran berhasil, alihkan ke halaman suksesDaftar.html
             window.location.href = "../pages/suksesDaftar.html";
         } else {
             // Handle kesalahan jika diperlukan
             const data = await response.json();
-            //console.error("Gagall mendaftar:", data.message);
             errorMessage.textContent = data.message; // Menampilkan pesan kesalahan dari API
         }
     } catch (error) {
-        console.error("Terjadi kesalahann:", error);
+        console.error("Terjadi kesalahan:", error);
+    } finally {
+        // Menyembunyikan loading spinner setelah selesai
+        loadingSpinner.style.display = "none";
     }
 });
