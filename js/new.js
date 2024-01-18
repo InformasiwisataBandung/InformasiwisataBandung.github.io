@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data.status === true) {
                 const token = data.token;
                 setCookieWithExpireHour("token", token, 2);
-                window.location.href = "../pages/autentikasi.html"; // Redirect on successful login
+                window.location.href = "autentikasi.html"; // Redirect on successful login
             } else {
-                errorMessage.textContent = "Userr not found";
+                errorMessage.textContent = "User not found";
             }
         })
         .catch(error => {
