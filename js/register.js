@@ -6,14 +6,14 @@ const submitButton = document.getElementById("submit");
 const registerForm = document.getElementById("registerForm");
 const errorMessage = document.getElementById("error-message");
 
-// URL API register
+// Link API register
 const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-1SIGNAUTHWA";
 
 // Tambahkan event listener untuk mengirim permintaan saat formulir dikirim
 registerForm.addEventListener("submit", async (event) => {
     event.preventDefault(); // Mencegah pengiriman form default
 
-    //Ambil nilai dari input username dan password
+    //Ambil nilai dari input username dan password dan nomor wa
     const no_whatsapp = no_whatsappInput.value;
     const username = usernameInput.value;
     const password = passwordInput.value;
@@ -31,7 +31,7 @@ registerForm.addEventListener("submit", async (event) => {
         });
 
         if (response.ok) {
-            // Pendaftaran berhasil, alihkan ke halaman login.html
+            // Pendaftaran berhasil, alihkan ke halaman suksesDaftar.html
             window.location.href = "../pages/suksesDaftar.html";
         } else {
             // Handle kesalahan jika diperlukan
