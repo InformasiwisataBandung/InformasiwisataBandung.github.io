@@ -13,17 +13,16 @@ const registerApiUrl = "https://asia-southeast2-bustling-walker-340203.cloudfunc
 registerForm.addEventListener("submit", async (event) => {
     event.preventDefault(); // Mencegah pengiriman form default
 
-    //Ambil nilai dari input username dan password dan nomor wa
+    // Ambil nilai dari input username, password, dan nomor WhatsApp
     const no_whatsapp = no_whatsappInput.value;
     const username = usernameInput.value;
     const password = passwordInput.value;
     const role = "user";
 
-    //Kirim permintaan POST ke API register
+    // Kirim permintaan POST ke API register
     try {
         const response = await fetch(registerApiUrl, {
             method: "POST",
-            //mode: "no-cors", // Menggunakan mode no-cors
             headers: {
                 "Content-Type": "application/json",
             },
@@ -36,8 +35,13 @@ registerForm.addEventListener("submit", async (event) => {
         } else {
             // Handle kesalahan jika diperlukan
             const data = await response.json();
-            //console.error("Gagall mendaftar:", data.message);
-            errorMessage.textContent = data.message; // Menampilkan pesan kesalahan dari API
+            if (!data.success) {
+                // Pendaftaran gagal, tampilkan pesan kesalahan dari API
+                errorMessage.textContent = data.message;
+            } else {
+                // Pendaftaran berhasil, alihkan ke halaman suksesDaftar.html
+                window.location.href = "../pages/suksesDaftar.html";
+            }
         }
     } catch (error) {
         console.error("Terjadi kesalahan:", error);
