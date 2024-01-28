@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Pengolahan respons setelah login berhasil untuk user biasa
                 const token = data.token;
                 setCookieWithExpireHour("token", token, 2);
-                window.location.href = "../pages/dashboard.html";
+                window.location.href = "../pages/Autentikasi.html";
             } else {
                 // Pesan kesalahan jika login gagal
                 errorMessage.textContent = "User not found"; // Pesan kesalahan
