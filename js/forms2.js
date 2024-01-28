@@ -10,10 +10,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add an event listener to the reset button
   resetBtn.addEventListener('click', function () {
-      resetForm();
+    // Reset the form  
+    resetForm();
+    form.reset();
+      // Clear any error messages or notifications
+      document.getElementById("error-message").textContent = "";
+      const notificationContainer = document.getElementById("notification-container");
+      while (notificationContainer.firstChild) {
+        notificationContainer.removeChild(notificationContainer.firstChild);
+    }
   });
 
-  // Function to submit the form data
+  function showNotification(message, type) {
+    const notificationContainer = document.getElementById("notification-container");
+    const notification = document.createElement("div");
+    notification.className = `notification is-${type}`;
+    notification.textContent = message;
+  
+    notificationContainer.appendChild(notification); 
+  
+    // Remove the notification after 3 seconds
+    setTimeout(() => {
+      notificationContainer.removeChild(notification);
+    }, 3000);
+  }
+
+  // Function to submit the form data, js = id
   function submitForm() {
       const categorySelect = document.getElementById('categorySelect');
       const namaInput = document.getElementById('nama');
@@ -30,15 +52,17 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
       }
     
-      // Prepare the data object to be sent
+      // Prepare the data object to be sent, mongodb=js
       const formData = {
-          category: categorySelect.value,
+        jenis: categorySelect.value, // 'jenis' corresponds to 'category' in your MongoDB structure
           nama: namaInput.value,
-          konten: kontenTextarea.value,
+          deskripsi: kontenTextarea.value, // 'deskripsi' corresponds to 'konten' in your MongoDB structure
           alamat: alamatInput.value,
           gambar: gambarInput.value, // You might need to adjust this based on your requirements
           rating: parseFloat(ratingInput.value)
       };
+
+      
     
       // Make a POST request to the API endpoint with authorization
       fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/CreateWIsataToken1', {
@@ -52,11 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(response => response.json())
       .then(data => {
           // Handle the response from the server
-          console.log('Success:', data);
+          console.log('Success::', data);
+          showNotification("Dataa has been successfully submitted", "success");
           // You can handle success accordingly, for example, display a success message or redirect the user
       })
       .catch((error) => {
           console.error('Error:', error);
+          showNotification("Failed to submit data. Please try again.", "danger");
           // Handle errors, display an error message, or log the error
       });
   }
@@ -92,4 +118,4 @@ document.addEventListener('DOMContentLoaded', function () {
       const parts = value.split(`; ${name}=`);
       if (parts.length === 2) return parts.pop().split(';').shift();
   }
-});
+}); //end document.addEventListener('DOMContentLoaded', function () {
