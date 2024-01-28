@@ -25,7 +25,7 @@ authForm.addEventListener("submit", async (event) => {
                 if (role === "admin") {
                     window.location.href = "../pages/admindashboard.html";
                 } else if (role === "user") {
-                    window.location.href = "../pages/dashboard.html";
+                    window.location.href = "../pages/card.html";
                 } else {
                     errorMessage.textContent = "Role tidak valid";
                 }

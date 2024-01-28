@@ -4,23 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Wisata Bandung</title>
+    <title>Galeri Foto</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/card.css">
+    <link rel="stylesheet" type="text/css" href="/css/galeri.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/index.css"> -->
     <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16" />
 </head>
 <body>
-    <section class="hero is-info">
+    <section class="hero is-medium">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title is-1">Selamat Datang di Dashboard</h1>
-            <h2 class="subtitle">Selamat menjelajahi informasi wisata Bandung.</h2>
-            <!-- <a href="#" class="button is-light is-medium">Keluar&ensp;<i class="fas fa-sign-out-alt"></i></a> -->
+            <h1 class="title is-1 " id="titleHero">Selamat Datang di Galeri</h1>
+            <h2 class="subtitle" id="subtitleHero">Jelajahi koleksi foto-foto indah dari destinasi wisata di Bandung</h2>
+            <a href="../index.html" class="button is-white is-inverted">Kembali ke Beranda&ensp;<i class="fad fa-chevron-left"></i></a>
           </div>
         </div>
     </section>
+
     <section class="section">
         <div class="container">
             <div class="columns is-multiline">
@@ -33,12 +35,10 @@
                             </figure>
                         </div>
                         <div class="card-content">
-                            <p class="title">Tangkuban Perahu</p>
+                            <p class="title" >Tangkuban Perahu</p>
                             <p class="subtitle">Wisata Alam</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -53,9 +53,7 @@
                             <p class="title">Gedung Sate</p>
                             <p class="subtitle">Wisata Sejarah</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -70,9 +68,7 @@
                             <p class="title">Braga</p>
                             <p class="subtitle">Kawasan Pusat Kota</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lan</a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -87,9 +83,7 @@
                             <p class="title">Braga</p>
                             <p class="subtitle">Kawasan Pusat Kota</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -104,9 +98,7 @@
                             <p class="title">Braga</p>
                             <p class="subtitle">Kawasan Pusat Kota</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -121,66 +113,17 @@
                             <p class="title">Braga</p>
                             <p class="subtitle">Kawasan Pusat Kota</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
                     </div>
                 </div>
-
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/images/braga.webp" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Braga</p>
-                            <p class="subtitle">Kawasan Pusat Kota</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/images/braga.webp" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Braga</p>
-                            <p class="subtitle">Kawasan Pusat Kota</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column is-4">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="/images/braga.webp" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Braga</p>
-                            <p class="subtitle">Kawasan Pusat Kota</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="card-footer-item">Baca Lebih Lanjut</a>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p><strong>Wisata Bandung</strong> &copy; 2024. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
