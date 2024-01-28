@@ -7,7 +7,7 @@
     <title>Autentikasi</title>
     <link rel="stylesheet" href="../css/autentikasi.css">
     <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -19,15 +19,19 @@
                 <p><strong>Salin token yang telah diberikan dan tempelkan disini:</strong> </p>
                 <br>
                 <div class="inputBx">
-                    <textarea id="tokenTextArea" rows="4" cols="38"  placeholder="Paste your token here..."></textarea>
-                    <a class="ok-button">OK</a>
+                    <textarea id="tokenTextArea" rows="4" cols="36"  placeholder="Paste your token here..."></textarea>
+                    <!-- <a class="ok-button">OK</a> -->
+                    <!-- <input type="submit" name="submit" value="OK" id="submit" class="ok-button"> -->
                 </div>
+
+                <div>
+                    <p id="error-message" class="error-message"></p>
+                </div>
+
                 <div class="inputBx">
-                    <input type="password" name="password" id="password" placeholder="Password"  required>
+                    <input type="submit" name="submit" value="OK" id="submit" class="ok-button">
                 </div>
-                <div class="inputBx" > 
-                    <input  type="submit" name="submit" value="ok" id="submit">
-                </div>
+
             </div>
         </div>
     </section>

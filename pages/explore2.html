@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Tempat Wisata</title>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet"/> 
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        .section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification {
+            background-color: #f0f9eb;
+            color: #4caf50;
+        }
+
+        button {
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #4caf50;
+            transform: scale(1.05);
+        }
+
+        table {
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        /* Custom Styles */
+        .input, .button {
+            width: 100%;
+            max-width: 400px; /* Maksimum lebar form dan button */
+            margin: 0 auto; /* Pusatkan form dan button */
+        }
+
+        .section-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title is-size-3 has-text-centered">Explore Tempat Wisata</h1>
+            <h2 class="subtitle is-size-5 has-text-centered">Inputkan nama tempat tanpa spasi</h2>
+            
+            <div class="field has-addons is-centered mt-5">
+                <div class="control is-expanded">
+                    <input class="input is-large" type="text" placeholder="Masukkan nama tempat wisata">
+                </div>
+                <div class="control">
+                    <button class="button is-large is-primary">Cari</button>
+                </div>
+            </div>
+            
+            <div class="notification mt-5">
+                <p class="has-text-weight-bold">Hasilnya:</p>
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123.123456</td>
+                            <td>123.123456</td>
+                        </tr>
+                        <tr>
+                            <td>123.123456</td>
+                            <td>123.123456</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="has-text-centered">
+                <button class="button is-large is-primary mt-5" onclick="showSection()">Cari lokasi di sini</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-hidden" id="section2">
+        <div class="container">
+            <h1 class="title is-size-3 has-text-centered">Explore Tempat Wisata</h1>
+            <h2 class="subtitle is-size-5 has-text-centered">Inputkan Koordinat</h2>
+            
+            <div class="field is-grouped is-grouped-centered mt-5">
+                <div class="control is-expanded">
+                    <input class="input is-large" type="text" placeholder="Masukkan latitude">
+                </div>
+                <div class="control is-expanded">
+                    <input class="input is-large" type="text" placeholder="Masukkan longitude">
+                </div>
+                <div class="control">
+                    <button class="button is-large is-primary">Cari</button>
+                </div>
+            </div>
+            
+            <div class="notification mt-5">
+                <p class="has-text-weight-bold">Hasilnya:</p>
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>123.123456</td>
+                            <td>123.123456</td>
+                        </tr>
+                        <tr>
+                            <td>123.123456</td>
+                            <td>123.123456</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            
+    </section>
+
+    <script>
+        function showSection() {
+            document.getElementById("section2").classList.remove("section-hidden");
+            window.scrollTo({
+                top: document.getElementById("section2").offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
