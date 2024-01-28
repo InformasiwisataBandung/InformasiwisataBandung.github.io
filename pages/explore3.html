@@ -46,6 +46,19 @@
             background-color: #5cb85c;
             color: #fff;
         }
+
+        /* dari sini diubah */
+        /* Custom Styles */
+        .input, .button {
+            width: 100%;
+            max-width: 400px; /* Maksimum lebar form dan button */
+            margin: 0 auto; /* Pusatkan form dan button */
+        }
+
+        .section-hidden {
+            display: none;
+        }
+        /* dari sini diubah */
     </style>
 </head>
 <body>
@@ -77,23 +90,25 @@
                             <td>123.123456</td>
                             <td>123.123456</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>123.123456</td>
                             <td>123.123456</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
             
+            <!-- /* dari sini diubah */ -->
             <div class="has-text-centered">
-                <button class="button is-large is-primary mt-5">Cari lokasi di sini</button>
+                <button class="button is-large is-primary mt-5" onclick="showSection()">Cari lokasi di sini</button>
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <!-- /* dari sini diubah */ -->
+    <section class="section section-hidden" id="section2">
         <div class="container">
-            <h1 class="title is-size-3 has-text-centered">Explore Tempat Wisata</h1>
+            <h1 class="title is-size-3 has-text-centered">Cari Lokasi Disini</h1>
             <h2 class="subtitle is-size-5 has-text-centered">Inputkan Koordinat</h2>
             
             <div class="field is-grouped is-grouped-centered mt-5">
@@ -130,10 +145,18 @@
                 </table>
             </div>
             
-            <div class="has-text-centered">
-                <button class="button is-large is-primary mt-5">Cari lokasi di sini</button>
-            </div>
+            
         </div>
     </section>
+
+    <script>
+        function showSection() {
+            document.getElementById("section2").classList.remove("section-hidden");
+            window.scrollTo({
+                top: document.getElementById("section2").offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>

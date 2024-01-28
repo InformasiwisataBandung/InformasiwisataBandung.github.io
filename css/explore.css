@@ -1,0 +1,64 @@
+
+        body {
+            background-color: #fafafa;
+        }
+
+        .section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification {
+            background-color: #f0f9eb;
+            color: #4caf50;
+        }
+
+        button {
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #4caf50;
+            transform: scale(1.05);
+        }
+
+        table {
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        /* Custom Styles */
+         .button {
+            width: 100%;
+            max-width: 400px; /* Maksimum lebar form dan button */
+            margin: 0 auto; /* Pusatkan form dan button */
+        }
+
+        .input{
+            width: 600px;
+        }
+
+        #input1{
+            width: 1253px;
+        }
+
+         .section-hidden {
+            display: none;
+        } 
+
+        /* #section2 {
+            display: none;
+        }  */
