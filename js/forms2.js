@@ -1,68 +1,87 @@
+// forms2.js
+
 document.addEventListener('DOMContentLoaded', function () {
+    const wisataForm = document.getElementById('wisataForm');
     const submitBtn = document.getElementById('submitBtn');
     const resetBtn = document.getElementById('resetBtn');
-    const wisataForm = document.getElementById('wisataForm');
-    const errorMessage = document.getElementById('error-message');
+    
+    // Add an event listener to the submit button
+    submitBtn.addEventListener('click', function () {
+      submitForm();
+    });
   
-    submitBtn.addEventListener('click', async function () {
-      // Collect form data
-      const nama = document.getElementById('nama').value;
-      const kategori = document.getElementById('categorySelect').value;
-      const konten = document.getElementById('konten').value;
-      const alamat = document.getElementById('alamat').value;
-      const gambar = document.getElementById('gambar').value;
-      const rating = parseFloat(document.getElementById('rating').value);
+    // Add an event listener to the reset button
+    resetBtn.addEventListener('click', function () {
+      resetForm();
+    });
   
-      // Validate form data
-      if (!nama || !kategori || !konten || !alamat || !gambar || isNaN(rating)) {
-        errorMessage.textContent = 'Please fill in all fields and ensure rating is a valid number.';
+    // Function to submit the form data
+    function submitForm() {
+      const categorySelect = document.getElementById('categorySelect');
+      const namaInput = document.getElementById('nama');
+      const kontenTextarea = document.getElementById('konten');
+      const alamatInput = document.getElementById('alamat');
+      const gambarInput = document.getElementById('gambar');
+      const ratingInput = document.getElementById('rating');
+  
+      // Validate form data before sending
+      if (!validateForm()) {
         return;
       }
   
-      // Prepare data object
-      const data = {
-        nama,
-        jenis: kategori,
-        deskripsi: konten,
-        lokasi: {
-          type: 'Point',
-          coordinates: [0] // You may replace this with actual coordinates
-        },
-        alamat,
-        gambar,
-        rating
+      // Prepare the data object to be sent
+      const formData = {
+        category: categorySelect.value,
+        nama: namaInput.value,
+        konten: kontenTextarea.value,
+        alamat: alamatInput.value,
+        gambar: gambarInput.value, // You might need to adjust this based on your requirements
+        rating: parseFloat(ratingInput.value)
       };
   
-      // Make POST request
-      try {
-        const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/CreateWIsataToken1', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
+      // Make a POST request to the API endpoint
+      fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/CreateWIsataToken1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        console.log('Success:', data);
+        // You can handle success accordingly, for example, display a success message or redirect the user
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle errors, display an error message, or log the error
+      });
+    }
   
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-  
-        const result = await response.json();
-        console.log('Post created successfully:', result);
-  
-        // Reset form and clear error message
-        wisataForm.reset();
-        errorMessage.textContent = '';
-      } catch (error) {
-        console.error('Error creating post:', error);
-        errorMessage.textContent = 'An error occurred while creating the post. Please try again.';
-      }
-    });
-  
-    resetBtn.addEventListener('click', function () {
-      // Reset form and clear error message
+    // Function to reset the form
+    function resetForm() {
       wisataForm.reset();
-      errorMessage.textContent = '';
-    });
+    }
+  
+    // Function to validate the form data
+    function validateForm() {
+      // You can implement your validation logic here
+      // For simplicity, this example assumes that all fields are required
+      const namaInput = document.getElementById('nama');
+      const ratingInput = document.getElementById('rating');
+      
+      if (namaInput.value.trim() === '') {
+        alert('Title is required.');
+        return false;
+      }
+  
+      if (ratingInput.value.trim() === '') {
+        alert('Rating is required.');
+        return false;
+      }
+  
+      return true;
+    }
   });
   
