@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             nama: namaInput.value,
             deskripsi: kontenTextarea.value, // 'deskripsi' corresponds to 'konten' in your MongoDB structure
             alamat: alamatInput.value,
-            gambar: gambarInput.value, // You might need to adjust this based on your requirements
+            gambar: gambarInput.files[0], // You might need to adjust this based on your requirements
             rating: parseFloat(ratingInput.value)
         };
   
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/json',
                 'token': token // Add authorization header
             },
-            body: JSON.stringify(formData),
+            body: formData,
         })
         .then(response => response.json())
         .then(data => {
