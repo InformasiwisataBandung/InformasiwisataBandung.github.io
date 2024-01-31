@@ -1,8 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const wisataForm = document.getElementById('wisataForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const resetBtn = document.getElementById('resetBtn');
-  
+const formData = new FormData();
+formData.append('jenis', categorySelect.value);
+formData.append('nama', namaInput.value);
+formData.append('deskripsi', kontenTextarea.value);
+formData.append('alamat', alamatInput.value);
+formData.append('gambar', gambarInput.files[0]); // Gunakan files[0] untuk mendapatkan file gambar
+formData.append('rating', parseFloat(ratingInput.value));
+
+// Periksa apakah file gambar telah dipilih
+if (!gambarInput.files[0]) {
+    showNotification("Please select an image file.", "danger");
+    return;
+}
+
   // Add an event listener to the submit button
   submitBtn.addEventListener('click', function () {
       submitForm();
@@ -66,13 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
     
       // Make a POST request to the API endpoint with authorization
       fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/CreateWIsataToken1', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-              'token': token // Add authorization header
-          },
-          body: JSON.stringify(formData),
-      })
+    method: 'POST',
+    headers: {
+        'token': token // Tambahkan header autorisasi
+    },
+    body: formData, // Gunakan objek FormData
+})
+
       .then(response => response.json())
       .then(data => {
           // Handle the response from the server
@@ -117,5 +126,4 @@ document.addEventListener('DOMContentLoaded', function () {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
       if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-}); //end document.addEventListener('DOMContentLoaded', function () {
+  }; //end document.addEventListener('DOMContentLoaded', function () {
