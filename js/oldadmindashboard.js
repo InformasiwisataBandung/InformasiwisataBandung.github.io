@@ -1,38 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
   
-  // Fungsi untuk menutup modal konfirmasi penghapusan
-  const closeDeleteConfirmationModal = () => {
-    document.getElementById('deleteConfirmationModal').classList.remove('is-active');
-  };
-
-  // Fungsi untuk mendapatkan nilai cookie berdasarkan nama
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  };
-
     const fetchData = async () => {
       try {
-        const token = getCookie('token'); // Mendapatkan token dari cookie
-        const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/Function-3ReadWisata', {
-            headers: {
-              'Authorization': `Bearer ${token}`, // Menambahkan header Authorization dengan token
-            },
-        });
-
+        const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/Function-3ReadWisata');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const jsonData = await response.json();
 
         // Check if the response is an array
-        if (Array.isArray(jsonData)) {
-          return { data: jsonData }; // Wrap the array in an object with a 'data' property
-        } else {
+    if (Array.isArray(jsonData)) {
+        return { data: jsonData }; // Wrap the array in an object with a 'data' property
+    } else {
         console.error('Invalid data structure in response:', jsonResponse);
         return null;
-        }
+      }
       } catch (error) {
         console.error('Error fetching data:', error);
         return null;
@@ -111,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('postNameToDelete').innerHTML = `Post: ${postName}`;
   
       deleteConfirmButton.onclick = async () => {
-        const token = getCookie('token'); // Mendapatkan token dari cookie
         // Panggil API untuk menghapus data berdasarkan nama
         const apiUrl = `https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/Function-5DeleteWisata`;
   
@@ -120,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`, // Menambahkan header Authorization dengan token
             },
             body: JSON.stringify({
               filter: {
