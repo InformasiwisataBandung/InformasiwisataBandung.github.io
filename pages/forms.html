@@ -25,9 +25,10 @@
       <a class="navbar-item is-hidden-desktop jb-aside-mobile-toggle">
         <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
       </a>
-      <div class="navbar-item has-control">
-        <div class="control"><input placeholder="Search everywhere..." class="input"></div>
-      </div>
+
+      <!-- <div class="navbar-item has-control">
+        <div class="control"><input placeholder="..." class="input"></div>
+      </div> -->
     </div>
     <div class="navbar-brand is-right">
       <a class="navbar-item is-hidden-desktop jb-navbar-menu-toggle" data-target="navbar-menu">
@@ -41,34 +42,19 @@
         <!-- menu ada profil -->
         <div class="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
           <a class="navbar-link is-arrowless">
-            <div class="is-user-avatar">
+            <!-- <div class="is-user-avatar">
               <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="Admin">
-            </div>
+            </div> -->
             <div class="is-user-name">
               <span>Admin</span>
             </div>
-            <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+            <!-- <span class="icon"><i class="mdi mdi-chevron-down"></i></span> -->
           </a>
-          <div class="navbar-dropdown">
-            <a href="profile.html" class="navbar-item">
-              <span class="icon"><i class="mdi mdi-account"></i></span>
-              <span>My Profile</span>
-            </a>
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-settings"></i></span>
-              <span>Settings</span>
-            </a>
-            
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              <span class="icon"><i class="mdi mdi-logout"></i></span>
-              <span>Log Out</span>
-            </a>
-          </div>
+
         </div>
-        <a href="https://justboil.me/bulma-admin-template/free-html-dashboard/" title="About" class="navbar-item has-divider is-desktop-icon-only">
+        <a href="../pages/explore.html" title="explore" class="navbar-item has-divider is-desktop-icon-only">
           <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
-          <span>About</span>
+          <span>Search Coordinates</span>
         </a>
         <a title="Log out" class="navbar-item is-desktop-icon-only">
           <span class="icon"><i class="mdi mdi-logout"></i></span>
@@ -86,15 +72,7 @@
       </div>
     </div>
     <div class="menu is-menu-main">
-      <p class="menu-label">General</p>
-      <!-- <ul class="menu-list">
-        <li>
-          <a href="index.html" class="has-icon">
-            <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-            <span class="menu-item-label">Dashboard</span>
-          </a>
-        </li>
-      </ul> -->
+      
       <p class="menu-label">Pages</p>
       <ul class="menu-list">
         <li>
@@ -138,24 +116,21 @@
           </ul>
         </li> -->
       </ul>
-      <!-- GARIS ABOUT -->
-      <!-- <p class="menu-label">About</p>
-      <ul class="menu-list">
-        <li>
-          <a href="https://github.com/vikdiesel/admin-one-bulma-dashboard" target="_blank" class="has-icon">
-            <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-            <span class="menu-item-label">GitHub</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://justboil.me/bulma-admin-template/free-html-dashboard/" class="has-icon">
-            <span class="icon"><i class="mdi mdi-help-circle"></i></span>
-            <span class="menu-item-label">About</span>
-          </a>
-        </li>
-      </ul> -->
     </div>
   </aside>
+
+  <section class="section is-title-bar">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <ul>
+            <li>Admin</li>
+            <li>Create Post</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section is-main-section">
     <div class="card">
@@ -202,9 +177,9 @@
                 <div class="control">
                   <input id="nama" class="input" type="text" placeholder="e.g. Keindahan Gunung Tangkuban Parahu">
                 </div>
-                <p id="namaError" class="help is-danger">
+                <!-- <p id="namaError" class="help is-danger">
                   This field is required
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
@@ -346,109 +321,6 @@
       </div>
     </div>
 
-    <!-- Custom elements -->
-    <!-- <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          <span class="icon"><i class="mdi mdi-ballot-outline default"></i></span>
-          Custom elements
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="field has-check is-horizontal">
-          <div class="field-label"><label class="label">Checkbox</label></div>
-          <div class="field-body">
-            <div class="field">
-              <div class="field is-grouped-multiline is-grouped">
-                <div class="control">
-                  <label class="b-checkbox checkbox"><input type="checkbox" value="lorem">
-                    <span class="check is-primary"></span>
-                    <span class="control-label">Lorem</span>
-                  </label>
-                </div>
-                <div class="control">
-                  <label class="b-checkbox checkbox"><input type="checkbox" value="ipsum">
-                    <span class="check is-primary"></span>
-                    <span class="control-label">Ipsum</span>
-                  </label>
-                </div>
-                <div class="control">
-                  <label class="b-checkbox checkbox"><input type="checkbox" value="dolore">
-                    <span class="check is-primary"></span>
-                    <span class="control-label">Dolore</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="field has-check is-horizontal">
-          <div class="field-label"><label class="label">Radio</label></div>
-          <div class="field-body">
-            <div class="field">
-              <div class="field is-grouped-multiline is-grouped">
-                <div class="control"><label class="b-radio radio"><input type="radio" name="sample-radio" value="one">
-                  <span class="check"></span>
-                  <span class="control-label">One</span>
-                </label></div>
-                <div class="control"><label class="b-radio radio"><input type="radio" name="sample-radio" value="two">
-                  <span class="check"></span>
-                  <span class="control-label">Two</span>
-                </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="field is-horizontal">
-          <div class="field-label"><label class="label">Switch</label></div>
-          <div class="field-body">
-            <div class="field">
-              <label class="switch is-rounded"><input type="checkbox" value="false">
-                <span class="check"></span>
-                <span class="control-label">Default</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="field is-horizontal">
-          <div class="field-label is-normal"><label class="label">File</label></div>
-          <div class="field-body">
-            <div class="field">
-              <div class="field file ">
-                <label class="upload control">
-                  <a class="button is-primary">
-                    <span class="icon"><i class="mdi mdi-upload"></i></span>
-                    <span>Pick a file</span>
-                  </a>
-                  <input type="file">
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div id="file-js-example" class="file has-name">
-          <label class="file-label">
-            <input class="file-input" type="file" name="resume">
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fas fa-upload"></i>
-              </span>
-              <span class="file-label">
-                Choose a file…
-              </span>
-            </span>
-            <span class="file-name">
-              No file uploaded
-            </span>
-          </label>
-        </div>
-      </div>
-    </div> -->
 
   </section>
 
