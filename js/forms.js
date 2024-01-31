@@ -40,9 +40,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const categorySelect = document.getElementById('categorySelect');
         const namaInput = document.getElementById('nama');
         const kontenTextarea = document.getElementById('konten');
+        const longitudeInput = document.getElementById('longitude');
+        const latitudeInput = document.getElementById('latitude');
         const alamatInput = document.getElementById('alamat');
         const gambarInput = document.getElementById('gambar');
         const ratingInput = document.getElementById('rating');
+        
 
         // Get token from cookies
         const token = getCookie('token');
@@ -57,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('jenis', categorySelect.value);
         formData.append('nama', namaInput.value);
         formData.append('deskripsi', kontenTextarea.value);
+        formData.append('longitude', longitudeInput.value);
+        formData.append('latitude', latitudeInput.value);
         formData.append('alamat', alamatInput.value);
         formData.append('gambar', gambarInput.files[0]);
         formData.append('rating', parseFloat(ratingInput.value));
