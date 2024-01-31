@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
           nama: namaInput.value,
           deskripsi: kontenTextarea.value, // 'deskripsi' corresponds to 'konten' in your MongoDB structure
           alamat: alamatInput.value,
-          gambar: gambarInput.value, // You might need to adjust this based on your requirements
+          gambar: gambarInput.value.toString(), // You might need to adjust this based on your requirements
           rating: parseFloat(ratingInput.value)
       };
 
