@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error:', error);
             showNotification("Failed to submit data. Please try again.", "danger");
-            // Handle errors, display an error message, or log the error
         });
     }
 
@@ -90,18 +89,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to validate the form data
     function validateForm() {
-        // You can implement your validation logic here
         // For simplicity, this example assumes that all fields are required
         const namaInput = document.getElementById('nama');
-        const ratingInput = document.getElementById('rating');
 
         if (namaInput.value.trim() === '') {
             alert('Title is required.');
-            return false;
-        }
-
-        if (ratingInput.value.trim() === '') {
-            alert('Rating is required.');
             return false;
         }
 
