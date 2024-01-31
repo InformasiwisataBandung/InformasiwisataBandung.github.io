@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
       // Fungsi untuk mengisi tabel dengan data
       const fillTable = (data) => {
         const tableBody = document.getElementById('table-body');
+        // Get token from cookies
+        //const token = getCookie('token');
 
         // Bersihkan isi tabel sebelum mengisi data baru   
         tableBody.innerHTML = '';
