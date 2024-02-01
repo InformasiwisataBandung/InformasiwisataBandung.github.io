@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`, // Menambahkan header Authorization dengan token
+              'token': token, // Menambahkan header Authorization dengan token
             },
             body: JSON.stringify({
               filter: {
