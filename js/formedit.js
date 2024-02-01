@@ -1,4 +1,3 @@
-// Add this function at the beginning of your formedit.js
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -11,7 +10,6 @@ function getParameterByName(name) {
 document.addEventListener('DOMContentLoaded', function () {
     const postName = getParameterByName('postName');
 
-    // Add file input functionality
     const fileInput = document.querySelector('#file-js-example input[type=file]');
     fileInput.onchange = () => {
         if (fileInput.files.length > 0) {
@@ -71,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get data and populate the form when the page loads
     populateFormForEdit();
 
-    // Set up event listener for the "Done" button
+    
     const submitBtn = document.getElementById('editBtn');
     submitBtn.addEventListener('click', async () => {
         const updatedData = {
@@ -120,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Function to show notifications
+    
     function showNotification(message, type) {
         const notificationContainer = document.getElementById("notification-container");
         const notification = document.createElement("div");

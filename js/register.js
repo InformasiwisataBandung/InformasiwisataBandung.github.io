@@ -1,4 +1,3 @@
-// Add event listener after the DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
     const no_whatsappInput = document.getElementById('no_whatsapp');
@@ -25,12 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ username, password, no_whatsapp, role }),
             });
 
+            // if (response.ok) {
+            //     window.location.href = '../pages/suksesDaftar.html';
+            // } else {
+            //     const data = await response.json();
+            //     if (data.status === false) {
+            //         errorMessage.textContent = data.message;
+            //     } else {
+            //         errorMessage.textContent = 'Failed to register.';
+            //     }
+            // }
             if (response.ok) {
-                window.location.href = '../pages/suksesDaftar.html';
+                const data = await response.json();
+                if (data.status === true) {
+                    window.location.href = '../pages/suksesDaftar.html';
+                } else {
+                    errorMessage.textContent = 'Failed to register.';
+                }
             } else {
                 const data = await response.json();
-                if (data.status === false) {
-                    errorMessage.textContent = data.message;
+                if (data.message.includes('already registered')) {
+                    errorMessage.textContent = 'Phone number is already registered.';
                 } else {
                     errorMessage.textContent = 'Failed to register.';
                 }

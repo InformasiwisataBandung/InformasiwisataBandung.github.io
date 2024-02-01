@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitBtn = document.getElementById('submitBtn');
     const resetBtn = document.getElementById('resetBtn');
 
-    // Add an event listener to the submit button
     submitBtn.addEventListener('click', function () {
         submitForm();
     });
 
-    // Add an event listener to the reset button
     resetBtn.addEventListener('click', function () {
         resetForm();
     });
@@ -102,22 +100,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to reset the form
     function resetForm() {
         //document.getElementById("wisataForm").reset();
         const form = document.getElementById("wisataForm");
         form.reset();
 
-        // Reset the file input display
+       
         const fileInput = document.querySelector('#file-js-example input[type=file]');
         const fileName = document.querySelector('#file-js-example .file-name');
         fileInput.value = ''; // Clear the file input value
         fileName.textContent = 'No file uploaded'; // Reset the display text
     }
 
-    // Function to validate the form data
     function validateForm() {
-        // For simplicity, this example assumes that all fields are required
+        
         const namaInput = document.getElementById('nama');
 
         const latitudeInput = document.getElementById('latitude');
