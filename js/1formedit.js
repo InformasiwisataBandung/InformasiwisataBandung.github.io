@@ -1,4 +1,3 @@
-// Add this function at the beginning of your formedit.js
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -10,6 +9,12 @@ function getParameterByName(name) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const postName = getParameterByName('postName');
+    const submitBtn = document.getElementById('editBtn');
+
+    // Add an event listener to the submit button
+    submitBtn.addEventListener('click', function () {
+        submitForm();
+    });
 
     // Add file input functionality
     const fileInput = document.querySelector('#file-js-example input[type=file]');
@@ -71,9 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get data and populate the form when the page loads
     populateFormForEdit();
 
-    // Set up event listener for the "Done" button
-    const submitBtn = document.getElementById('editBtn');
-    submitBtn.addEventListener('click', async () => {
+    // Function to submit the form data
+    function submitForm() {
+        const token = getCookie('token');
+
+        // Validate form data and perform necessary checks
+        // ...
+
         const updatedData = {
             filter: { nama: postName },
             update: {
@@ -89,36 +98,31 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         };
 
-        try {
-            const token = getCookie('token');
-
-            const response = await fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/UpdateWisata', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'token': token,
-                },
-                body: JSON.stringify(updatedData),
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const result = await response.json();
-
-            if (result && result.message === "Data updated successfully") {
-                console.log('Update result:', result);
+        // Make a PUT request to the API endpoint with authorization
+        fetch('https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/UpdateWisata', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': token,
+            },
+            body: JSON.stringify(updatedData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the server
+            if (data && data.message === "Data updated successfully") {
+                console.log('Update result:', data);
                 showNotification("Data has been successfully updated", "success");
                 window.location.href = 'admindashboard.html';
             } else {
                 throw new Error('Unexpected response format');
             }
-        } catch (error) {
+        })
+        .catch(error => {
             console.error('Error updating data:', error);
             showNotification("Failed to update data. Please try again.", "danger");
-        }
-    });
+        });
+    }
 
     // Function to show notifications
     function showNotification(message, type) {

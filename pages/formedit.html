@@ -93,6 +93,20 @@
     </div>
   </aside>
 
+  <section class="section is-title-bar">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <ul>
+            <li>Admin</li>
+            <li>Edit Post</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
   <section class="section is-main-section">
     <div class="card">
       <header class="card-header">
@@ -136,9 +150,9 @@
                 <div class="control">
                   <input id="nama" class="input" type="text" placeholder="e.g. Keindahan Gunung Tangkuban Parahu">
                 </div>
-                <p id="namaError" class="help is-danger">
+                <!-- <p id="namaError" class="help is-danger">
                   This field is required
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
@@ -156,6 +170,32 @@
             </div>
           </div>
           <hr>
+          <!-- latitude -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Latitude</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input id="latitude" class="input" type="number" step="0.000001" placeholder="Enter latitude">
+                    </div>
+                </div>
+            </div>
+          </div>
+          <!-- logitude -->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Longitude</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input id="longitude" class="input" type="number" step="0.000001" placeholder="Enter longitude">
+                    </div>
+                </div>
+            </div>
+          </div>
           <!-- address -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -281,8 +321,8 @@
 
 <!-- Scripts below are for demo only -->
 <script type="text/javascript" src="../js/main.min.js"></script>
-<script type="module" src="../js/formedit.js"></script>
-<script type="module" src="../js/forms.js"></script>
+<!-- <script type="module" src="../js/forms.js"></script> -->
+<script type="module" src="../js/1formedit.js"></script>
 <!-- <script type="module" src="../js/notif.js"></script> -->
 
 <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->

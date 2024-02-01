@@ -53,12 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
               const row = 
               `
                   <tr>
-                      <td class="is-checkbox-cell">
-                          <label class="b-checkbox checkbox">
-                              <input type="checkbox" value="false">
-                              <span class="check"></span>
-                          </label>
-                      </td>
+                      
                       <td data-label="Judul">${item.nama}</td>
                       <td data-label="Jenis">${item.jenis}</td>
                       <td data-label="Alamat">${item.alamat}</td>
