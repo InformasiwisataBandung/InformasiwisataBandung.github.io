@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('error-message');
     const registerApiUrl = 'https://asia-southeast2-bustling-walker-340203.cloudfunctions.net/function-1SIGNAUTHWA';
 
-    
+    // Add event listener for form submission
     registerForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                window.location.href = '../pages/suksesDaftar.html';
+                const data = await response.json();
+                if (data.status === true) {
+                    // Redirect to success page
+                    window.location.href = '../pages/suksesDaftar.html';
+                } else {
+                    errorMessage.textContent = 'Failed to register.';
+                }
             } else {
                 const data = await response.json();
                 if (data.status === false) {
@@ -34,22 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     errorMessage.textContent = 'Failed to register.';
                 }
             }
-
-            // if (response.ok) {
-            //     const data = await response.json();
-            //     if (data.status === true) {
-            //         window.location.href = '../pages/suksesDaftar.html';
-            //     } else {
-            //         errorMessage.textContent = 'Failed to register.';
-            //     }
-            // } else {
-            //     const data = await response.json();
-            //     if (data.message.includes('already registered')) {
-            //         errorMessage.textContent = 'Phone number is already registered.';
-            //     } else {
-            //         errorMessage.textContent = 'Failed to register.';
-            //     }
-            // }
         } catch (error) {
             console.error('An error occurred:', error);
         }
