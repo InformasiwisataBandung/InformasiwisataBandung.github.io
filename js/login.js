@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data.status === true) {
                 const token = data.token;
                 setCookieWithExpireHour("token", token, 2);
-                window.location.href = "../pages/autentikasi.html";
+                //window.location.href = "../pages/autentikasi.html";
+                window.location.href = "../pages/admindashboard.html";
             } else {
                 
                 errorMessage.textContent = "User not found"; // Pesan kesalahan
